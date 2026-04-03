@@ -36,15 +36,43 @@
   }
 }
 
+@keyframes completion-confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0) rotate(0deg);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--confetti-x, 0px), 170px, 0)
+      rotate(var(--confetti-rotate, 180deg));
+  }
+}
+
 @layer utilities {
   .guide-target-flash {
     animation: guide-target-flash 1.15s ease-in-out 1;
+  }
+
+  .completion-confetti {
+    animation: completion-confetti-fall 1.8s ease-out forwards;
+    animation-delay: var(--confetti-delay, 0s);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .guide-target-flash {
       animation: none;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+    }
+
+    .completion-confetti {
+      animation: none;
+      opacity: 0.25;
+      transform: none;
     }
   }
 }

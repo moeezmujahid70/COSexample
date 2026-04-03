@@ -22,6 +22,23 @@ function InfoIcon() {
   );
 }
 
+function StepIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 fill-none stroke-current"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 12h14M13 6l6 6-6 6"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function PageHeader({
   eyebrow,
   title,
@@ -61,36 +78,40 @@ export default function PageHeader({
   };
 
   return (
-    <section className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
-      <div className="rounded-[1.6rem] border border-surface-border bg-surface-card px-6 py-5 shadow-[0_14px_28px_rgba(15,23,42,0.06)]">
+    <section className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_16.5rem] lg:items-stretch xl:grid-cols-[minmax(0,1fr)_17.5rem]">
+      <div className="rounded-[1.45rem] border border-surface-border bg-surface-card px-5 py-4 shadow-[0_12px_24px_rgba(15,23,42,0.05)] sm:px-6 sm:py-5">
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
           {eyebrow}
         </p>
-        <h2 className="mt-3 text-2xl font-semibold tracking-tight text-text-primary sm:text-[2rem]">
+        <h2 className="mt-2.5 text-xl font-semibold tracking-tight text-text-primary sm:text-[1.7rem]">
           {title}
         </h2>
         {description ? (
-          <p className="mt-3 max-w-2xl text-sm leading-7 text-text-muted sm:text-[0.95rem]">
+          <p className="mt-2.5 max-w-2xl text-sm leading-6 text-text-muted sm:text-[0.92rem]">
             {description}
           </p>
         ) : null}
       </div>
 
       <aside
-        className="cursor-pointer rounded-[1.4rem] border border-callout-border bg-callout-bg px-4 py-4 shadow-[0_10px_24px_rgba(37,99,235,0.08)] transition-colors duration-200 hover:bg-white focus-within:bg-white"
+        className="cursor-pointer rounded-[1.3rem] border border-callout-border bg-callout-bg px-3.5 py-3.5 shadow-[0_8px_18px_rgba(37,99,235,0.07)] transition-colors duration-200 hover:bg-white focus-within:bg-white sm:px-4"
         onMouseEnter={flashTarget}
         onMouseLeave={clearTarget}
         onClick={flashTarget}
       >
-        <div className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-accent-strong ring-1 ring-callout-border">
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white text-accent-strong ring-1 ring-callout-border">
             <InfoIcon />
           </span>
-          <div>
+          <div className="min-w-0">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
               Recommended Next Step
             </p>
-            <p className="mt-1 text-sm leading-6 text-text-primary">{helpText}</p>
+            <p className="mt-1 text-sm leading-5 text-text-primary">{helpText}</p>
+            <div className="mt-2 flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-accent-strong">
+              <StepIcon />
+              <span>Hover to highlight</span>
+            </div>
           </div>
         </div>
       </aside>

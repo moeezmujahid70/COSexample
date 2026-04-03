@@ -51,7 +51,7 @@ export default function HomeContent() {
       </div>
 
       <section className="rounded-[1.7rem] border border-guide-border bg-guide-bg px-6 py-6 shadow-[0_12px_28px_rgba(120,98,62,0.08)]">
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-3 lg:grid-cols-[minmax(0,1.15fr)_repeat(3,minmax(0,0.9fr))]">
           <div>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
               How To Use This
@@ -61,25 +61,60 @@ export default function HomeContent() {
             </p>
           </div>
           <div className="rounded-2xl border border-white/70 bg-white/70 px-4 py-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
+            <div className="flex items-center gap-2">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-surface-page text-accent-strong ring-1 ring-surface-border">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4 fill-none stroke-current"
+                  aria-hidden="true"
+                >
+                  <path d="M7 12h10M13 8l4 4-4 4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
               1. Choose a track
-            </p>
+              </p>
+            </div>
             <p className="mt-2 text-sm leading-6 text-text-primary">
               Start with behavior or jump straight to decision principles.
             </p>
           </div>
           <div className="rounded-2xl border border-white/70 bg-white/70 px-4 py-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
+            <div className="flex items-center gap-2">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-surface-page text-accent-strong ring-1 ring-surface-border">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4 fill-none stroke-current"
+                  aria-hidden="true"
+                >
+                  <path d="M6.5 12.5l3.2 3.2L17.5 8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
               2. Follow the path
-            </p>
+              </p>
+            </div>
             <p className="mt-2 text-sm leading-6 text-text-primary">
               Use the action buttons or the left rail to continue, review, or return.
             </p>
           </div>
           <div className="rounded-2xl border border-white/70 bg-white/70 px-4 py-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
+            <div className="flex items-center gap-2">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-surface-page text-accent-strong ring-1 ring-surface-border">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4 fill-none stroke-current"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="8" strokeWidth="1.8" />
+                  <path d="M12 10v4" strokeWidth="1.8" strokeLinecap="round" />
+                  <circle cx="12" cy="7.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
               3. Watch the prompt
-            </p>
+              </p>
+            </div>
             <p className="mt-2 text-sm leading-6 text-text-primary">
               The help panel beside the page title always shows the next recommended action.
             </p>

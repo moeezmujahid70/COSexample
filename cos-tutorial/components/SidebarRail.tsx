@@ -11,30 +11,35 @@ const sections: Array<{
   title: string;
   href: string;
   caption: string;
+  icon: "overview" | "behavior" | "decision" | "complete";
 }> = [
   {
     key: "home",
     title: "Overview",
     href: "/",
     caption: "Start here and choose a principle track.",
+    icon: "overview",
   },
   {
     key: "behavior",
     title: "Behavior",
     href: "/behavior",
     caption: "How the team shows up and supports each other.",
+    icon: "behavior",
   },
   {
     key: "decision",
     title: "Decision",
     href: "/decision",
     caption: "How choices are documented and moved forward.",
+    icon: "decision",
   },
   {
     key: "goodbye",
     title: "Complete",
     href: "/goodbye",
     caption: "Session close and completion state.",
+    icon: "complete",
   },
 ];
 
@@ -54,10 +59,55 @@ function getActiveSection(pathname: string): SectionKey {
   return "home";
 }
 
-function SectionIcon({ active }: { active: boolean }) {
+function SectionIcon({
+  active,
+  kind,
+}: {
+  active: boolean;
+  kind: "overview" | "behavior" | "decision" | "complete";
+}) {
+  const icon = {
+    overview: (
+      <path
+        d="M5 6.5h14M5 12h14M5 17.5h9"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    ),
+    behavior: (
+      <>
+        <circle cx="9" cy="8" r="2.2" strokeWidth="1.8" />
+        <circle cx="15" cy="16" r="2.2" strokeWidth="1.8" />
+        <path
+          d="M11 9.5l2 5M10.5 14.5l-3 3M13.5 12.5l3-3"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+    decision: (
+      <>
+        <path
+          d="M7 7h10M7 12h10M7 17h6"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+        <circle cx="17" cy="17" r="2" strokeWidth="1.8" />
+      </>
+    ),
+    complete: (
+      <path
+        d="M6.5 12.5l3.2 3.2L17.5 8"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    ),
+  }[kind];
+
   return (
     <span
-      className={`flex h-10 w-10 items-center justify-center rounded-2xl border transition-colors duration-200 ${
+      className={`flex h-9 w-9 items-center justify-center rounded-2xl border transition-colors duration-200 ${
         active
           ? "border-accent bg-accent text-white"
           : "border-surface-border bg-surface-page text-text-muted"
@@ -65,10 +115,25 @@ function SectionIcon({ active }: { active: boolean }) {
       aria-hidden="true"
     >
       <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current">
+        {icon}
+      </svg>
+    </span>
+  );
+}
+
+function UserAvatar() {
+  return (
+    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-subtle text-accent-strong ring-1 ring-callout-border">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5 fill-none stroke-current"
+        aria-hidden="true"
+      >
         <path
-          d="M5 6.5h14M5 12h14M5 17.5h9"
+          d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM6 19.5c1.1-2.3 3.3-3.5 6-3.5s4.9 1.2 6 3.5"
           strokeWidth="1.8"
           strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </span>
@@ -84,15 +149,20 @@ export default function SidebarRail() {
     <aside className="space-y-4 lg:sticky lg:top-6">
       <section className="overflow-hidden rounded-[1.75rem] border border-surface-border bg-surface-card shadow-[0_18px_40px_rgba(15,23,42,0.07)]">
         <div className="border-b border-surface-border bg-[linear-gradient(135deg,#eff6ff_0%,#f7f3ec_100%)] px-5 py-5">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent-strong">
-            Guided Workspace
-          </p>
-          <p className="mt-3 text-xl font-semibold leading-8 tracking-tight text-text-primary">
-            {siteTitle}
-          </p>
-          <p className="mt-2 text-sm leading-6 text-text-muted">
-            A structured walkthrough of team behavior and decision principles.
-          </p>
+          <div className="flex items-start gap-3">
+            <UserAvatar />
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent-strong">
+                Guided Workspace
+              </p>
+              <p className="mt-1.5 text-lg font-semibold leading-7 tracking-tight text-text-primary">
+                {siteTitle}
+              </p>
+              <p className="mt-1.5 text-sm leading-6 text-text-muted">
+                A structured walkthrough of team behavior and decision principles.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="px-4 py-4">
@@ -127,7 +197,7 @@ export default function SidebarRail() {
                       : "hover:bg-surface-page"
                   }`}
                 >
-                  <SectionIcon active={active} />
+                  <SectionIcon active={active} kind={section.icon} />
                   <div className="min-w-0">
                     <p
                       className={`text-sm font-semibold ${
@@ -148,9 +218,25 @@ export default function SidebarRail() {
       </section>
 
       <section className="rounded-[1.5rem] border border-guide-border bg-guide-bg px-5 py-5 shadow-[0_12px_28px_rgba(120,98,62,0.08)]">
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
-          Navigation Guide
-        </p>
+        <div className="flex items-center gap-2">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-accent-strong ring-1 ring-guide-border">
+            <svg
+              viewBox="0 0 24 24"
+              className="h-4 w-4 fill-none stroke-current"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 8v4m0 4h.01M4.9 19h14.2a1 1 0 0 0 .88-1.47L12.88 5.4a1 1 0 0 0-1.76 0L4.02 17.53A1 1 0 0 0 4.9 19Z"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
+            Navigation Guide
+          </p>
+        </div>
         <ul className="mt-3 space-y-3 text-sm leading-6 text-text-primary">
           <li>Use the sidebar to jump between sections at any point.</li>
           <li>Each screen includes a highlighted action prompt at the top.</li>
