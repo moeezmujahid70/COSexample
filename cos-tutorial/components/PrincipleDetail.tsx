@@ -10,6 +10,8 @@ interface PrincipleDetailProps {
   nextLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  nextGuideTargetId?: string;
+  secondaryGuideTargetId?: string;
 }
 
 function DetailPanel({
@@ -38,6 +40,8 @@ export default function PrincipleDetail({
   nextLabel,
   secondaryHref,
   secondaryLabel,
+  nextGuideTargetId,
+  secondaryGuideTargetId,
 }: PrincipleDetailProps) {
   return (
     <div className="grid gap-5 xl:grid-cols-[minmax(0,1.45fr)_19rem]">
@@ -55,10 +59,16 @@ export default function PrincipleDetail({
         {(nextHref || secondaryHref) && (
           <div className="flex flex-wrap gap-3 pt-2">
             {nextHref && nextLabel ? (
-              <ActionButton href={nextHref}>{nextLabel}</ActionButton>
+              <ActionButton href={nextHref} guideTargetId={nextGuideTargetId}>
+                {nextLabel}
+              </ActionButton>
             ) : null}
             {secondaryHref && secondaryLabel ? (
-              <ActionButton href={secondaryHref} variant="secondary">
+              <ActionButton
+                href={secondaryHref}
+                variant="secondary"
+                guideTargetId={secondaryGuideTargetId}
+              >
                 {secondaryLabel}
               </ActionButton>
             ) : null}

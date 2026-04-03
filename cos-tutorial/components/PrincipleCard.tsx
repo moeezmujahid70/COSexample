@@ -3,12 +3,18 @@ import Link from "next/link";
 interface PrincipleCardProps {
   label: string;
   href: string;
+  guideTargetId?: string;
 }
 
-export default function PrincipleCard({ label, href }: PrincipleCardProps) {
+export default function PrincipleCard({
+  label,
+  href,
+  guideTargetId,
+}: PrincipleCardProps) {
   return (
     <Link
       href={href}
+      data-guide-target={guideTargetId}
       className="group flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-[1.9rem] border border-surface-border bg-surface-card transition-colors duration-200 hover:border-accent hover:bg-accent-subtle focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
     >
       <div className="border-b border-surface-border bg-[linear-gradient(135deg,#eff6ff_0%,#f8f9fa_100%)] px-6 py-5">

@@ -35,6 +35,7 @@ export default function DecisionDetailPage({
           title={principle.title}
           description="Use this screen to review the decision principle in full and then continue or return using the guided controls."
           helpText={instructionMap[params.id]}
+          helpTargetId={params.id === "1" ? "decision-next" : "decision-end"}
         />
 
         <PrincipleDetail
@@ -46,6 +47,8 @@ export default function DecisionDetailPage({
           nextLabel={principle.nextLabel}
           secondaryHref={principle.secondaryHref}
           secondaryLabel={principle.secondaryLabel}
+          nextGuideTargetId={params.id === "1" ? "decision-next" : "decision-end"}
+          secondaryGuideTargetId={params.id === "2" ? "decision-return" : undefined}
         />
       </div>
     </PageShell>

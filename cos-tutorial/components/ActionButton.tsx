@@ -4,12 +4,14 @@ interface ActionButtonProps {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary";
+  guideTargetId?: string;
 }
 
 export default function ActionButton({
   href,
   children,
   variant = "primary",
+  guideTargetId,
 }: ActionButtonProps) {
   const baseStyles =
     "inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page";
@@ -22,7 +24,11 @@ export default function ActionButton({
   };
 
   return (
-    <Link href={href} className={variantStyles[variant]}>
+    <Link
+      href={href}
+      data-guide-target={guideTargetId}
+      className={variantStyles[variant]}
+    >
       {children}
     </Link>
   );

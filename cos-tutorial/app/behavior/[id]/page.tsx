@@ -35,6 +35,7 @@ export default function BehaviorDetailPage({
           title={principle.title}
           description="Read the principle details, review ownership, and use the action controls below to continue the tutorial."
           helpText={instructionMap[params.id]}
+          helpTargetId={params.id === "1" ? "behavior-next" : "behavior-return"}
         />
 
         <PrincipleDetail
@@ -46,6 +47,7 @@ export default function BehaviorDetailPage({
           nextLabel={principle.nextLabel}
           secondaryHref={principle.secondaryHref}
           secondaryLabel={principle.secondaryLabel}
+          nextGuideTargetId={params.id === "1" ? "behavior-next" : "behavior-return"}
         />
       </div>
     </PageShell>

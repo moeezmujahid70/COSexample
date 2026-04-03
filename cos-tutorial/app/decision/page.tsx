@@ -15,6 +15,7 @@ export default function DecisionPage() {
           title={category.label}
           description="Review how the team documents decisions and gathers input before moving into the detailed decision principles."
           helpText={category.listInstruction}
+          helpTargetId="decision-principle-1"
         />
 
         <SectionHero
@@ -32,6 +33,7 @@ export default function DecisionPage() {
               number={index + 1}
               title={principle.title}
               href={`/decision/${principle.id}`}
+              guideTargetId={`decision-principle-${principle.id}`}
             />
           ))}
         </div>

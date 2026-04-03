@@ -15,6 +15,7 @@ export default function BehaviorPage() {
           title={category.label}
           description="Review the expected team behaviors, then open a principle to see its accountable owner and measurement."
           helpText={category.listInstruction}
+          helpTargetId="behavior-principle-1"
         />
 
         <SectionHero
@@ -32,6 +33,7 @@ export default function BehaviorPage() {
               number={index + 1}
               title={principle.title}
               href={`/behavior/${principle.id}`}
+              guideTargetId={`behavior-principle-${principle.id}`}
             />
           ))}
         </div>

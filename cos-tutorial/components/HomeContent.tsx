@@ -14,14 +14,17 @@ export default function HomeContent() {
     from === "behavior"
       ? homeContent.revisitedInstruction
       : homeContent.defaultInstruction;
+  const helpTargetId =
+    from === "behavior" ? "home-decision-card" : "home-behavior-card";
 
   return (
     <div className="space-y-5">
       <PageHeader
         eyebrow="Tutorial Overview"
         title="Learn the culture system through guided paths."
-        description="Use the left navigation and the step prompts to move through the tutorial deliberately."
+        description="Use the left navigation and the recommended step to move through the tutorial deliberately."
         helpText={instruction}
+        helpTargetId={helpTargetId}
       />
 
       <SectionHero
@@ -34,7 +37,16 @@ export default function HomeContent() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {homeContent.cards.map((card) => (
-          <PrincipleCard key={card.href} label={card.label} href={card.href} />
+          <PrincipleCard
+            key={card.href}
+            label={card.label}
+            href={card.href}
+            guideTargetId={
+              card.href === "/behavior"
+                ? "home-behavior-card"
+                : "home-decision-card"
+            }
+          />
         ))}
       </div>
 
