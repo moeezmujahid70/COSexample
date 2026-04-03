@@ -216,33 +216,6 @@ export default function SidebarRail() {
           </nav>
         </div>
       </section>
-
-      <section className="rounded-[1.5rem] border border-guide-border bg-guide-bg px-5 py-5 shadow-[0_12px_28px_rgba(120,98,62,0.08)]">
-        <div className="flex items-center gap-2">
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-accent-strong ring-1 ring-guide-border">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-4 w-4 fill-none stroke-current"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 8v4m0 4h.01M4.9 19h14.2a1 1 0 0 0 .88-1.47L12.88 5.4a1 1 0 0 0-1.76 0L4.02 17.53A1 1 0 0 0 4.9 19Z"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
-            Navigation Guide
-          </p>
-        </div>
-        <ul className="mt-3 space-y-3 text-sm leading-6 text-text-primary">
-          <li>Use the sidebar to jump between sections at any point.</li>
-          <li>Each screen includes a highlighted action prompt at the top.</li>
-          <li>Primary buttons move the guided flow forward. Secondary buttons return to earlier sections.</li>
-        </ul>
-      </section>
     </aside>
   );
 }

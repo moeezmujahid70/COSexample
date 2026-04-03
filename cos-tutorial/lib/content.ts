@@ -72,8 +72,8 @@ export const categories: PrincipleCategory[] = [
     principles: [
       {
         id: "1",
-        title: "Bring up possible problems early — no surprises.",
-        body: "Information that could affect outcomes — risks, delays, disagreements, bad news — is shared as soon as it is known, not only when it is convenient, certain, or comfortable. If unclear, still share what is known and what is uncertain. Team members should never be caught off guard by something the team could have known.",
+        title: "Bring up possible problems early - no surprises.",
+        body: "Information that could affect outcomes - risks, delays, disagreements, bad news - is shared as soon as it is known, not only when it is convenient, certain, or comfortable. If unclear, still share what is known and what is uncertain. Team members should never be caught off guard by something the team could have known.",
         accountable: "Suzanne Figueroa, Senior Developer",
         measurement: sharedMeasurement,
         nextHref: "/behavior/2",
@@ -102,7 +102,7 @@ export const categories: PrincipleCategory[] = [
         id: "1",
         title:
           "Document what was decided, why it was decided, and make that rationale accessible to all stakeholders so decisions are transparent and understandable.",
-        body: "Make the rationale for a decision accessible to all stakeholders so decisions are transparent and understandable. This means capturing not just the outcome, but the thinking behind it — including key considerations, tradeoffs, and alternatives that were evaluated. The purpose is to ensure that stakeholders can see how and why a decision was made, even if they were not directly involved or do not fully agree with the outcome.",
+        body: "Make the rationale for a decision accessible to all stakeholders so decisions are transparent and understandable. This means capturing not just the outcome, but the thinking behind it - including key considerations, tradeoffs, and alternatives that were evaluated. The purpose is to ensure that stakeholders can see how and why a decision was made, even if they were not directly involved or do not fully agree with the outcome.",
         accountable: "Nancy Blake, Team Assistant",
         measurement: sharedMeasurement,
         nextHref: "/decision/2",
