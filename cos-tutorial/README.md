@@ -31,6 +31,7 @@ All tutorial copy and flow metadata live in a central content module so the rout
 
 ## Project Structure
 
+
 ```text
 cos-tutorial/
 ├── app/
