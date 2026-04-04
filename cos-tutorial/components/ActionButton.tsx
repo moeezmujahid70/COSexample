@@ -14,13 +14,13 @@ export default function ActionButton({
   guideTargetId,
 }: ActionButtonProps) {
   const baseStyles =
-    "inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page";
+    "inline-flex min-h-10 items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page";
 
   const variantStyles = {
     primary:
-      `${baseStyles} cursor-pointer bg-accent text-white shadow-[0_14px_26px_rgba(37,99,235,0.18)] hover:bg-accent-hover`,
+      `${baseStyles} cursor-pointer bg-success text-white hover:bg-success-hover focus-visible:ring-success`,
     secondary:
-      `${baseStyles} cursor-pointer border border-surface-border bg-surface-card text-text-primary hover:border-accent hover:bg-accent-subtle`,
+      `${baseStyles} cursor-pointer border border-surface-border bg-surface-card text-text-primary hover:border-accent hover:bg-surface-page focus-visible:ring-accent`,
   };
 
   return (

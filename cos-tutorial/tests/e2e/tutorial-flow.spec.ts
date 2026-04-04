@@ -7,7 +7,7 @@ test("full tutorial flow: behavior path then decision path", async ({ page }) =>
     page.getByRole("heading", { name: "Our R&D Team Culture" }),
   ).toBeVisible();
   await expect(
-    page.getByText("Mouse over Behavioral Principles and click it."),
+    page.getByText("Workspace Overview"),
   ).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Behavior Principles" }),
@@ -45,7 +45,7 @@ test("full tutorial flow: behavior path then decision path", async ({ page }) =>
   await page.getByRole("link", { name: "Back to Principles Tabs" }).click();
   await expect(page).toHaveURL("/?from=behavior");
   await expect(
-    page.getByText("Mouse over Decision Principles and click it."),
+    page.getByText("Available tracks"),
   ).toBeVisible();
 
   await page.getByRole("link", { name: "Decision Principles" }).click();
@@ -78,7 +78,7 @@ test("full tutorial flow: behavior path then decision path", async ({ page }) =>
 
   await page.getByRole("link", { name: "End Session" }).click();
   await expect(page).toHaveURL("/goodbye");
-  await expect(page.getByText("Goodbye")).toBeVisible();
+  await expect(page.getByText("Session Complete")).toBeVisible();
 });
 
 test("direct path: decision first", async ({ page }) => {
@@ -94,7 +94,7 @@ test("screen 5 back-to-tabs from DP2", async ({ page }) => {
   await page.getByRole("link", { name: "Back to Principles Tab" }).click();
   await expect(page).toHaveURL("/?from=behavior");
   await expect(
-    page.getByText("Mouse over Decision Principles and click it."),
+    page.getByText("Available tracks"),
   ).toBeVisible();
 });
 

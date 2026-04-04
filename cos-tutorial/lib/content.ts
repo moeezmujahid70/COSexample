@@ -9,6 +9,7 @@ export interface PrincipleDetail {
   body: string;
   accountable: string;
   measurement: string;
+  employeeFeedback: string[];
   nextHref?: string;
   nextLabel?: string;
   secondaryHref?: string;
@@ -76,6 +77,10 @@ export const categories: PrincipleCategory[] = [
         body: "Information that could affect outcomes - risks, delays, disagreements, bad news - is shared as soon as it is known, not only when it is convenient, certain, or comfortable. If unclear, still share what is known and what is uncertain. Team members should never be caught off guard by something the team could have known.",
         accountable: "Suzanne Figueroa, Senior Developer",
         measurement: sharedMeasurement,
+        employeeFeedback: [
+          "People are quicker to raise issues now instead of waiting-it's made things a lot smoother.",
+          "We talk about problems while they're still small, not after they've blown up.",
+        ],
         nextHref: "/behavior/2",
         nextLabel: "Next Behavioral Principle",
       },
@@ -85,6 +90,10 @@ export const categories: PrincipleCategory[] = [
         body: `This is about creating a culture of shared ownership - not "that's their problem," but "we move forward together." It encourages awareness, empathy, and initiative, while respecting the other person's autonomy (offer help, don't impose it).`,
         accountable: "Samuel Bass, Database Administrator",
         measurement: sharedMeasurement,
+        employeeFeedback: [
+          "If someone's stuck, people notice and check in-it's not just 'figure it out yourself' anymore.",
+          "There's more of a 'we're in this together' feel instead of everyone staying in their own lane.",
+        ],
         nextHref: "/?from=behavior",
         nextLabel: "Back to Principles Tabs",
       },
@@ -105,6 +114,10 @@ export const categories: PrincipleCategory[] = [
         body: "Make the rationale for a decision accessible to all stakeholders so decisions are transparent and understandable. This means capturing not just the outcome, but the thinking behind it - including key considerations, tradeoffs, and alternatives that were evaluated. The purpose is to ensure that stakeholders can see how and why a decision was made, even if they were not directly involved or do not fully agree with the outcome.",
         accountable: "Nancy Blake, Team Assistant",
         measurement: sharedMeasurement,
+        employeeFeedback: [
+          "I used to wonder why decisions were made. Now I can just look it up and get the full picture.",
+          "Even when I don't agree, at least I understand the thinking. That's a big improvement.",
+        ],
         nextHref: "/decision/2",
         nextLabel: "Next Decision Principle",
       },
@@ -115,6 +128,10 @@ export const categories: PrincipleCategory[] = [
         body: "Before making a decision, the team actively reaches out to the people who will be affected or who have relevant knowledge. Their perspectives are used to challenge assumptions, surface risks, and improve the quality of the decision. Input is sought early enough to influence the outcome, not after the direction is already set, and stakeholders are given enough context to provide meaningful, informed feedback. While all relevant perspectives are considered, consensus is not required.",
         accountable: "Nancy Blake, Team Assistant",
         measurement: sharedMeasurement,
+        employeeFeedback: [
+          "They actually ask for input before things are locked in now, which makes it feel worth speaking up.",
+          "Not everyone gets their way, but you can see your input shaped the decision.",
+        ],
         nextHref: "/goodbye",
         nextLabel: "End Session",
         secondaryHref: "/?from=behavior",

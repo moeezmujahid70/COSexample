@@ -6,11 +6,6 @@ import { notFound } from "next/navigation";
 
 export const dynamicParams = false;
 
-const instructionMap: Record<PrincipleId, string> = {
-  "1": "Read this Behavioral Principle and its details below.",
-  "2": "Read this Behavioral Principle and its details below.",
-};
-
 export function generateStaticParams() {
   return [{ id: "1" }, { id: "2" }];
 }
@@ -25,7 +20,7 @@ export default function BehaviorDetailPage({
   }
 
   const category = getCategory("behavior");
-  const principle = getPrinciple("behavior", params.id);
+  const principle = getPrinciple("behavior", params.id as PrincipleId);
 
   return (
     <PageShell>
@@ -33,21 +28,14 @@ export default function BehaviorDetailPage({
         <PageHeader
           eyebrow={`Behavioral Principle ${params.id} of ${category.principles.length}`}
           title={principle.title}
-          description="Read the principle details, review ownership, and use the action controls below to continue the tutorial."
-          helpText={instructionMap[params.id]}
-          helpTargetId={params.id === "1" ? "behavior-next" : "behavior-return"}
         />
 
         <PrincipleDetail
-          title={principle.title}
           body={principle.body}
-          accountable={principle.accountable}
-          measurement={principle.measurement}
           nextHref={principle.nextHref}
           nextLabel={principle.nextLabel}
           secondaryHref={principle.secondaryHref}
           secondaryLabel={principle.secondaryLabel}
-          nextGuideTargetId={params.id === "1" ? "behavior-next" : "behavior-return"}
         />
       </div>
     </PageShell>
