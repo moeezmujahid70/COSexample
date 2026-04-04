@@ -145,8 +145,31 @@ export default function SidebarRail() {
   const activeSection = getActiveSection(pathname);
   const activeIndex = sections.findIndex((section) => section.key === activeSection);
 
+  const activeSection_ = sections[activeIndex];
+
   return (
-    <aside className="space-y-4 lg:sticky lg:top-6">
+    <div className="lg:sticky lg:top-6">
+      {/* Mobile: compact progress strip */}
+      <div className="lg:hidden flex items-center gap-3 rounded-2xl border border-surface-border bg-surface-card px-4 py-3 shadow-[0_4px_12px_rgba(15,23,42,0.05)]">
+        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-accent bg-accent text-white">
+          <SectionIcon active kind={activeSection_.icon} />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-semibold text-text-primary">{activeSection_.title}</p>
+          <p className="text-[0.7rem] text-text-muted">Step {activeIndex + 1} of {sections.length}</p>
+        </div>
+        <div className="w-16 flex-shrink-0">
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-surface-tint">
+            <div
+              className="h-full rounded-full bg-accent transition-all duration-300"
+              style={{ width: `${((activeIndex + 1) / sections.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: full sidebar */}
+      <aside className="hidden lg:block space-y-4">
       <section className="overflow-hidden rounded-[1.75rem] border border-surface-border bg-surface-card shadow-[0_18px_40px_rgba(15,23,42,0.07)]">
         <div className="border-b border-surface-border bg-[linear-gradient(135deg,#eff6ff_0%,#f7f3ec_100%)] px-5 py-5">
           <div className="flex items-start gap-3">
@@ -216,6 +239,7 @@ export default function SidebarRail() {
           </nav>
         </div>
       </section>
-    </aside>
+      </aside>
+    </div>
   );
 }

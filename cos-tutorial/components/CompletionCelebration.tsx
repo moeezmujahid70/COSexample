@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
 const confettiPieces = [
@@ -14,10 +15,20 @@ const confettiPieces = [
 
 function CompletionBadge() {
   return (
-    <div className="flex h-20 w-20 items-center justify-center rounded-full border border-callout-border bg-callout-bg text-accent-strong shadow-[0_14px_26px_rgba(37,99,235,0.12)]">
-      <span className="text-4xl" role="img" aria-label="Thumbs up">
-        👍
-      </span>
+    <div className="flex h-20 w-20 items-center justify-center rounded-full border border-callout-border bg-callout-bg text-accent shadow-[0_14px_26px_rgba(37,99,235,0.12)]">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-9 w-9 fill-none stroke-current"
+        aria-hidden="true"
+      >
+        <path
+          d="M7 11.5l3.5 3.5L17.5 8"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="12" cy="12" r="9" strokeWidth="1.8" />
+      </svg>
     </div>
   );
 }
@@ -70,6 +81,25 @@ export default function CompletionCelebration({
         <p className="mt-3 max-w-md text-sm leading-7 text-text-muted">
           You have completed the COS tutorial. Thank you.
         </p>
+
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)] transition-all duration-200 hover:bg-accent-hover hover:shadow-[0_6px_20px_rgba(37,99,235,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" aria-hidden="true">
+              <path d="M1 4v6h6M23 20v-6h-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Run tutorial again
+          </Link>
+          <Link
+            href="/behavior"
+            className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-card px-6 py-2.5 text-sm font-semibold text-text-primary transition-all duration-200 hover:border-accent hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          >
+            Review behavior principles
+          </Link>
+        </div>
       </motion.div>
     </motion.section>
   );

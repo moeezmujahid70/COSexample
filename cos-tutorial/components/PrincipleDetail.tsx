@@ -1,5 +1,4 @@
 import ActionButton from "@/components/ActionButton";
-import Image from "next/image";
 
 interface PrincipleDetailProps {
   title: string;
@@ -55,12 +54,6 @@ export default function PrincipleDetail({
   return (
     <div className="grid gap-5 xl:grid-cols-[minmax(0,1.45fr)_19rem]">
       <div className="space-y-4 sm:space-y-5">
-        <DetailPanel label="Principle">
-          <p className="text-xl font-semibold leading-8 tracking-tight text-text-primary">
-            {title}
-          </p>
-        </DetailPanel>
-
         <DetailPanel
           label="Action / Initiative"
           icon={
@@ -102,28 +95,6 @@ export default function PrincipleDetail({
       </div>
 
       <div className="space-y-4">
-        <section className="overflow-hidden rounded-[1.6rem] border border-surface-border bg-surface-card shadow-[0_14px_30px_rgba(15,23,42,0.06)]">
-          <div className="border-b border-surface-border bg-[linear-gradient(135deg,#eff6ff_0%,#f8f9fa_100%)] px-5 py-5">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
-              Guidance Snapshot
-            </p>
-            <div className="mt-4">
-              <Image
-                src="/illustration-decision.svg"
-                alt="Abstract illustration representing guided principle review."
-                width={240}
-                height={180}
-                className="h-auto w-full"
-              />
-            </div>
-          </div>
-          <div className="px-5 py-5">
-            <p className="text-sm leading-6 text-text-primary">
-              Review the principle first, then use the action buttons below to continue through the guided sequence.
-            </p>
-          </div>
-        </section>
-
         <DetailPanel
           label="Accountable"
           icon={

@@ -30,7 +30,7 @@ export default function SectionHero({
           </p>
         </div>
 
-        <div className="border-t border-surface-border bg-[linear-gradient(180deg,#eff6ff_0%,#f8f9fa_100%)] px-5 py-5 lg:border-l lg:border-t-0">
+        <div className="hidden border-t border-surface-border bg-[linear-gradient(180deg,#eff6ff_0%,#f8f9fa_100%)] px-5 py-5 lg:block lg:border-l lg:border-t-0">
           <div className="mx-auto max-w-[15rem]">
             <Image
               src={imageSrc}
