@@ -10,15 +10,15 @@ export default function PageHeader({
   description,
 }: PageHeaderProps) {
   return (
-    <div className="rounded-xl border border-surface-border bg-surface-card px-5 py-4 shadow-[0_1px_2px_rgba(17,24,39,0.04)]">
-      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-text-muted">
+    <div className="mx-auto max-w-4xl rounded-2xl border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfc_100%)] px-6 py-7 text-center shadow-[0_12px_30px_rgba(15,23,42,0.06)] sm:px-8">
+      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
         {eyebrow}
       </p>
-      <h1 className="mt-2 text-[1.85rem] font-semibold leading-tight tracking-tight text-text-primary sm:text-[2rem]">
+      <h1 className="mt-4 text-[1.3rem] font-semibold leading-[1.25] tracking-tight text-text-primary sm:text-[1.45rem] lg:text-[1.65rem]">
         {title}
       </h1>
       {description ? (
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-text-muted">
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-text-muted">
           {description}
         </p>
       ) : null}

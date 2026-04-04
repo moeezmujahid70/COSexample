@@ -184,9 +184,6 @@ export default function PrinciplePopups({
                 >
                   {current.title}
                 </h3>
-                  <p className="mt-1 text-sm text-text-muted">
-                    Review the supporting detail for this principle.
-                  </p>
                 </div>
               </div>
               <button

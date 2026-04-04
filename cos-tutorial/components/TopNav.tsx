@@ -1,8 +1,8 @@
 "use client";
 
+import BrandLockup from "@/components/BrandLockup";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteTitle } from "@/lib/content";
 
 type SectionKey = "home" | "behavior" | "decision" | "goodbye";
 
@@ -28,12 +28,10 @@ export default function TopNav() {
     <header className="sticky top-0 z-30 border-b border-surface-border/80 bg-surface-page/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <div className="min-w-0">
-          <p className="text-[0.625rem] font-semibold uppercase leading-none tracking-[0.18em] text-accent-strong">
-            Culture Operating System
-          </p>
-          <p className="mt-1 truncate text-sm font-semibold leading-tight text-text-primary">
-            {siteTitle}
-          </p>
+          <BrandLockup
+            compact
+            titleClassName="truncate"
+          />
         </div>
 
         <nav
