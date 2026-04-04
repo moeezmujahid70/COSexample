@@ -17,6 +17,11 @@ cd cos-tutorial
 # Development
 npm run dev          # Start dev server on http://localhost:3000
 
+# If dev server shows 500 errors or garbled pages, kill and restart:
+# kill $(lsof -ti:3000) 2>/dev/null && npm run dev > /tmp/cos-dev.log 2>&1 &
+# Playwright config hardcodes 127.0.0.1:3000 — ensure dev server is on port 3000
+# before running e2e tests, or Playwright will spawn its own server instance.
+
 # Build & check
 npm run build        # Production build
 npm run lint         # ESLint
@@ -162,6 +167,12 @@ Typography: Inter font — scale `text-sm` → `text-2xl`, weights `font-medium`
 
 **`cos-tutorial/lib/content.ts` is the only place content lives.** If a screen's text, button label, or navigation href needs changing, it changes only in `lib/content.ts`. Never hardcode content strings in component or page files.
 
+**Dev server cache.** The Next.js dev server frequently enters a stale state (500 errors, garbled screenshots). Always kill before restarting: `kill $(lsof -ti:3000) 2>/dev/null`. Playwright config hardcodes port 3000 — if dev is on 3001, kill it and restart on 3000 first.
+
+**SidebarRail is responsive.** Below `lg`: compact progress strip (icon + step count + progress bar). At `lg+`: full sticky sidebar. `SectionIcon` provides its own `h-9 w-9` container — never wrap it in another sized span.
+
+**SectionHero illustration is hidden on mobile.** The image column uses `hidden lg:block`. Do not add illustrations back to the mobile view.
+
 ---
 
 ## Execution Mandates
@@ -172,4 +183,4 @@ Typography: Inter font — scale `text-sm` → `text-2xl`, weights `font-medium`
 
 **Implementation plan:** `/Users/moeezmujahid/.claude/plans/imperative-roaming-alpaca.md`
 
-**Current build status:** All 9 screens complete. 8/8 unit tests pass. 10/10 e2e tests pass. Production build clean. 3 commits pending push to origin/main.
+**Current build status:** All 9 screens complete. 8/8 unit tests pass. 10/10 e2e tests pass. Production build clean. Push to origin/main pending.

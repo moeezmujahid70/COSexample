@@ -151,7 +151,7 @@ export default function SidebarRail() {
     <div className="lg:sticky lg:top-6">
       {/* Mobile: compact progress strip */}
       <div className="lg:hidden flex items-center gap-3 rounded-2xl border border-surface-border bg-surface-card px-4 py-3 shadow-[0_4px_12px_rgba(15,23,42,0.05)]">
-        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border border-accent bg-accent text-white">
+        <span className="flex-shrink-0">
           <SectionIcon active kind={activeSection_.icon} />
         </span>
         <div className="min-w-0 flex-1">
