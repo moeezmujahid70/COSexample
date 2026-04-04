@@ -1,8 +1,8 @@
 "use client";
 
+import BrandLockup from "@/components/BrandLockup";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteTitle } from "@/lib/content";
 
 type SectionKey = "home" | "behavior" | "decision" | "goodbye";
 
@@ -175,12 +175,11 @@ export default function SidebarRail() {
           <div className="flex items-start gap-3">
             <UserAvatar />
             <div>
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent-strong">
-                Guided Workspace
-              </p>
-              <p className="mt-1.5 text-lg font-semibold leading-7 tracking-tight text-text-primary">
-                {siteTitle}
-              </p>
+              <BrandLockup
+                compact
+                subtitle="Guided Workspace"
+                titleClassName="mt-0"
+              />
               <p className="mt-1.5 text-sm leading-6 text-text-muted">
                 A structured walkthrough of team behavior and decision principles.
               </p>

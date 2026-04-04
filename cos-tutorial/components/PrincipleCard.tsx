@@ -1,37 +1,32 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 
 interface PrincipleCardProps {
   label: string;
   href: string;
   guideTargetId?: string;
+  enterDelay?: string;
 }
 
 export default function PrincipleCard({
   label,
   href,
   guideTargetId,
+  enterDelay,
 }: PrincipleCardProps) {
   return (
     <Link
       href={href}
       data-guide-target={guideTargetId}
-      className="group flex h-full cursor-pointer flex-col justify-between overflow-hidden rounded-[1.9rem] border border-surface-border bg-surface-card transition-colors duration-200 hover:border-accent hover:bg-accent-subtle focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
+      className="surface-enter surface-lift group flex min-h-[220px] cursor-pointer items-center justify-center rounded-2xl border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f7fbfc_100%)] p-8 text-center shadow-[0_10px_30px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 hover:border-[#67e8f9] hover:bg-accent-subtle hover:shadow-[0_16px_36px_rgba(8,145,178,0.12)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
+      style={{ "--enter-delay": enterDelay ?? "0s" } as CSSProperties}
     >
-      <div className="border-b border-surface-border bg-[linear-gradient(135deg,#eff6ff_0%,#f8f9fa_100%)] px-6 py-5">
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
-          Explore
-        </p>
-        <h2 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-text-primary transition-colors duration-200 group-hover:text-accent">
+      <div className="space-y-4">
+        <span className="mx-auto block h-px w-14 bg-[linear-gradient(90deg,transparent,#22D3EE,transparent)]" />
+        <h2 className="text-3xl font-semibold leading-tight tracking-tight text-text-primary transition-colors duration-150 group-hover:text-accent-strong">
           {label}
         </h2>
-      </div>
-      <div className="flex items-center justify-between px-6 py-5">
-        <span className="text-sm leading-6 text-text-muted">
-          Review the principles and open the guided details.
-        </span>
-        <span className="ml-4 rounded-full border border-surface-border bg-surface-page px-2.5 py-1 text-xs font-semibold text-text-muted transition-colors duration-200 group-hover:border-accent group-hover:bg-white group-hover:text-accent">
-          Open
-        </span>
+        <span className="mx-auto block h-px w-14 bg-[linear-gradient(90deg,transparent,#22C55E,transparent)]" />
       </div>
     </Link>
   );

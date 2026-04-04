@@ -1,57 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 
 const confettiPieces = [
-  { left: "10%", color: "#2563EB", x: "-18px", rotate: "-120deg", delay: "0.02s" },
-  { left: "20%", color: "#BFDBFE", x: "22px", rotate: "160deg", delay: "0.15s" },
-  { left: "32%", color: "#E7D9C2", x: "-10px", rotate: "-90deg", delay: "0.08s" },
-  { left: "48%", color: "#2563EB", x: "16px", rotate: "180deg", delay: "0.22s" },
-  { left: "60%", color: "#F7F3EC", x: "-22px", rotate: "-140deg", delay: "0.12s" },
-  { left: "74%", color: "#BFDBFE", x: "10px", rotate: "120deg", delay: "0.28s" },
-  { left: "86%", color: "#2563EB", x: "-14px", rotate: "-170deg", delay: "0.18s" },
+  { left: "10%", color: "#10B981", x: "-18px", rotate: "-120deg", delay: "0.02s" },
+  { left: "18%", color: "#A7F3D0", x: "20px", rotate: "160deg", delay: "0.08s" },
+  { left: "31%", color: "#818CF8", x: "-10px", rotate: "-95deg", delay: "0.15s" },
+  { left: "47%", color: "#10B981", x: "14px", rotate: "180deg", delay: "0.22s" },
+  { left: "63%", color: "#C4B5FD", x: "-20px", rotate: "-140deg", delay: "0.1s" },
+  { left: "79%", color: "#34D399", x: "12px", rotate: "120deg", delay: "0.28s" },
+  { left: "88%", color: "#818CF8", x: "-12px", rotate: "-170deg", delay: "0.18s" },
 ];
-
-function CompletionBadge() {
-  return (
-    <div className="flex h-20 w-20 items-center justify-center rounded-full border border-callout-border bg-callout-bg text-accent shadow-[0_14px_26px_rgba(37,99,235,0.12)]">
-      <svg
-        viewBox="0 0 24 24"
-        className="h-9 w-9 fill-none stroke-current"
-        aria-hidden="true"
-      >
-        <path
-          d="M7 11.5l3.5 3.5L17.5 8"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="12" cy="12" r="9" strokeWidth="1.8" />
-      </svg>
-    </div>
-  );
-}
 
 export default function CompletionCelebration({
   title,
 }: {
   title: string;
 }) {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
-    <motion.section
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-      animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-[2rem] border border-surface-border bg-surface-card px-6 py-12 text-center shadow-[0_18px_36px_rgba(15,23,42,0.07)]"
-    >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-44">
+    <section className="surface-enter relative overflow-hidden rounded-[1.75rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f6fffb_100%)] px-6 py-10 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:px-10">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40">
         {confettiPieces.map((piece, index) => (
           <span
             key={index}
-            className="completion-confetti absolute top-3 block h-5 w-2 rounded-full"
+            className="completion-confetti absolute top-4 block h-4 w-2 rounded-full"
             style={
               {
                 left: piece.left,
@@ -65,42 +37,44 @@ export default function CompletionCelebration({
         ))}
       </div>
 
-      <motion.div
-        initial={shouldReduceMotion ? false : { scale: 0.92, opacity: 0 }}
-        animate={shouldReduceMotion ? undefined : { scale: 1, opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.08, ease: "easeOut" }}
-        className="relative mx-auto flex w-full max-w-lg flex-col items-center"
-      >
-        <CompletionBadge />
-        <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-text-muted">
+      <div className="relative mx-auto max-w-2xl text-center">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-success-border bg-success-subtle text-success-hover shadow-[0_10px_24px_rgba(16,185,129,0.16)]">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-6 w-6 fill-none stroke-current"
+            aria-hidden="true"
+          >
+            <path
+              d="M7 11.5l3.5 3.5L17.5 8"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+        <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
           Session Complete
         </p>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text-primary">
+        <h2 className="mt-3 text-4xl font-semibold tracking-tight text-text-primary sm:text-[3.25rem]">
           {title}
         </h2>
-        <p className="mt-3 max-w-md text-sm leading-7 text-text-muted">
-          You have completed the COS tutorial. Thank you.
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-text-muted sm:text-[0.95rem]">
+          The review flow is complete. You can restart the walkthrough at any time.
         </p>
 
-        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+        <div className="mt-8 flex justify-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)] transition-all duration-200 hover:bg-accent-hover hover:shadow-[0_6px_20px_rgba(37,99,235,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="surface-lift inline-flex items-center justify-center gap-2 rounded-xl bg-success px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(16,185,129,0.24)] hover:-translate-y-0.5 hover:bg-success-hover hover:shadow-[0_18px_34px_rgba(16,185,129,0.26)] focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" aria-hidden="true">
               <path d="M1 4v6h6M23 20v-6h-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 0 1 3.51 15" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Run tutorial again
-          </Link>
-          <Link
-            href="/behavior"
-            className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-card px-6 py-2.5 text-sm font-semibold text-text-primary transition-all duration-200 hover:border-accent hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-          >
-            Review behavior principles
+            Run again
           </Link>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }

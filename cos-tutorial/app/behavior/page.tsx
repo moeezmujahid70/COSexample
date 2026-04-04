@@ -1,7 +1,6 @@
-import PageHeader from "@/components/PageHeader";
 import PageShell from "@/components/PageShell";
 import PrincipleListItem from "@/components/PrincipleListItem";
-import SectionHero from "@/components/SectionHero";
+import TrackComment from "@/components/TrackComment";
 import { getCategory } from "@/lib/content";
 
 export default function BehaviorPage() {
@@ -10,21 +9,7 @@ export default function BehaviorPage() {
   return (
     <PageShell>
       <div className="space-y-5">
-        <PageHeader
-          eyebrow="Behavior Track"
-          title={category.label}
-          description="Review the expected team behaviors, then open a principle to see its accountable owner and measurement."
-          helpText={category.listInstruction}
-          helpTargetId="behavior-principle-1"
-        />
-
-        <SectionHero
-          eyebrow="Track Summary"
-          title="Behavior principles"
-          description={category.listBodyText}
-          imageSrc="/illustration-behavior.svg"
-          imageAlt="Abstract illustration showing a behavior principles menu."
-        />
+        <TrackComment title="Behavior Principles for the R&D Team" />
 
         <div className="space-y-3">
           {category.principles.map((principle, index) => (
@@ -33,7 +18,9 @@ export default function BehaviorPage() {
               number={index + 1}
               title={principle.title}
               href={`/behavior/${principle.id}`}
-              guideTargetId={`behavior-principle-${principle.id}`}
+              accountable={principle.accountable}
+              measurement={principle.measurement}
+              employeeFeedback={principle.employeeFeedback}
             />
           ))}
         </div>
