@@ -19,6 +19,7 @@ The tutorial is designed to teach team culture concepts through a constrained pa
 
 All tutorial copy and flow metadata live in a central content module so the route components remain thin.
 
+
 ## Stack
 
 - Next.js 14 App Router
@@ -30,7 +31,6 @@ All tutorial copy and flow metadata live in a central content module so the rout
 - Playwright
 
 ## Project Structure
-
 
 ```text
 cos-tutorial/
