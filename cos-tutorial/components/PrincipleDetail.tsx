@@ -34,11 +34,13 @@ export default function PrincipleDetail({
   return (
     <div className="space-y-4">
       <DetailPanel>
-        <p className="text-[1.05rem] leading-9 text-text-primary">{body}</p>
+        <p className="text-[0.98rem] leading-8 text-text-primary sm:text-[1.05rem] sm:leading-9">
+          {body}
+        </p>
       </DetailPanel>
 
       {(nextHref || secondaryHref) && (
-        <div className="flex flex-wrap gap-3 pt-1">
+        <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
           {nextHref && nextLabel ? (
             <ActionButton href={nextHref} guideTargetId={nextGuideTargetId}>
               {nextLabel}

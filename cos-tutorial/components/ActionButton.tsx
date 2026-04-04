@@ -14,7 +14,7 @@ export default function ActionButton({
   guideTargetId,
 }: ActionButtonProps) {
   const baseStyles =
-    "inline-flex min-h-10 items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page";
+    "inline-flex min-h-10 w-full items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page sm:w-auto";
 
   const variantStyles = {
     primary:

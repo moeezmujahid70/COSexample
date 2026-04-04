@@ -18,7 +18,7 @@ export default function CompletionCelebration({
   title: string;
 }) {
   return (
-    <section className="relative overflow-hidden rounded-[1.75rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f6fffb_100%)] px-6 py-10 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:px-10">
+    <section className="surface-enter relative overflow-hidden rounded-[1.75rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f6fffb_100%)] px-6 py-10 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:px-10">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40">
         {confettiPieces.map((piece, index) => (
           <span
@@ -65,7 +65,7 @@ export default function CompletionCelebration({
         <div className="mt-8 flex justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-success px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(16,185,129,0.24)] transition-colors duration-150 hover:bg-success-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2"
+            className="surface-lift inline-flex items-center justify-center gap-2 rounded-xl bg-success px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(16,185,129,0.24)] hover:-translate-y-0.5 hover:bg-success-hover hover:shadow-[0_18px_34px_rgba(16,185,129,0.26)] focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" aria-hidden="true">
               <path d="M1 4v6h6M23 20v-6h-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

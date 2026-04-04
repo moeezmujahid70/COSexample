@@ -53,9 +53,36 @@
   }
 }
 
+@keyframes surface-enter-soft {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @layer utilities {
   .guide-target-flash {
     animation: guide-target-flash 1.15s ease-in-out 1;
+  }
+
+  .surface-enter {
+    animation: surface-enter-soft 0.42s ease-out both;
+    animation-delay: var(--enter-delay, 0s);
+  }
+
+  .surface-lift {
+    transition:
+      transform 180ms ease-out,
+      box-shadow 180ms ease-out,
+      border-color 180ms ease-out,
+      background-color 180ms ease-out,
+      color 180ms ease-out;
+    will-change: transform;
   }
 
   .completion-confetti {
@@ -64,6 +91,20 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .surface-enter {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .surface-lift {
+      transition:
+        box-shadow 140ms ease-out,
+        border-color 140ms ease-out,
+        background-color 140ms ease-out,
+        color 140ms ease-out;
+    }
+
     .guide-target-flash {
       animation: none;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);

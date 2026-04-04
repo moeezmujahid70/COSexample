@@ -47,7 +47,7 @@ function getPopupMeta(
 
   return {
   accountable: {
-    title: "Accountable",
+    title: "Leadership",
     items: [accountable],
     icon: icons.accountable,
   },
@@ -140,7 +140,7 @@ export default function PrinciplePopups({
         )}
         <div className={`${compact ? "" : "mt-4 "}grid gap-3 sm:grid-cols-3`}>
           <PopupButton
-            label="Accountable"
+            label="Leadership"
             onClick={() => setActivePopup("accountable")}
             icon={content.accountable.icon}
             compact={compact}

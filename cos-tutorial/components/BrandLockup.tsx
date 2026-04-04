@@ -38,7 +38,7 @@ export default function BrandLockup({
 
   return (
     <div
-      className={`flex ${direction === "row" ? "flex-row gap-4" : "flex-col gap-3"} ${stackClass} ${alignmentClass}`}
+      className={`flex ${direction === "row" ? "flex-row gap-1" : "flex-col gap-3"} ${stackClass} ${alignmentClass}`}
     >
       <Image
         src="/assets/brand/logo_transparent.png"
