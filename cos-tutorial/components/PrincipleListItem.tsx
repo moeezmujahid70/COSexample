@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import PrinciplePopups from "@/components/PrinciplePopups";
 
 interface PrincipleListItemProps {
   number: number;
+  total: number;
   title: string;
   href: string;
   accountable: string;
@@ -13,6 +13,8 @@ interface PrincipleListItemProps {
 }
 
 export default function PrincipleListItem({
+  number,
+  total,
   title,
   href,
   accountable,
@@ -28,21 +30,14 @@ export default function PrincipleListItem({
         className="group block cursor-pointer rounded-t-xl transition-colors duration-150 hover:bg-surface-page focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
       >
         <div className="flex items-center gap-4 p-4 sm:p-5">
-        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center">
-          <Image
-            src="/assets/icons/search-focus-icon-transparent.svg"
-            alt=""
-            width={30}
-            height={30}
-            className="h-8 w-8"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="min-w-0 flex-1">
-          <h3 className="text-base font-semibold leading-6 tracking-tight text-text-primary transition-colors duration-150 group-hover:text-accent sm:text-lg">
-            {title}
-          </h3>
-        </div>
+          <div className="min-w-0 flex-1 text-center">
+            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
+              Principle {number} of {total}
+            </p>
+            <h3 className="mt-1 text-base font-semibold leading-6 tracking-tight text-text-primary transition-colors duration-150 group-hover:text-accent sm:text-lg">
+              {title}
+            </h3>
+          </div>
           <span className="self-center rounded-md border border-surface-border bg-surface-page px-2 py-1 text-[0.68rem] font-medium text-text-muted">
             Open
           </span>

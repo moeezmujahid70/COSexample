@@ -32,6 +32,7 @@ export default function DecisionDetailPage({
 
         <PrincipleDetail
           body={principle.body}
+          actionEyebrow={`Action ${params.id} of ${category.principles.length}`}
           nextHref={principle.nextHref}
           nextLabel={principle.nextLabel}
           secondaryHref={principle.secondaryHref}

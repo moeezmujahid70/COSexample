@@ -5,20 +5,22 @@ import BrandLockup from "@/components/BrandLockup";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-type SectionKey = "home" | "behavior" | "decision" | "goodbye";
+type SectionKey = "welcome" | "overview" | "behavior" | "decision" | "goodbye";
 
 const sections: Array<{ key: SectionKey; title: string; href: string }> = [
-  { key: "home", title: "Overview", href: "/" },
+  { key: "welcome", title: "Welcome", href: "/" },
+  { key: "overview", title: "Overview", href: "/overview" },
   { key: "behavior", title: "Behavior", href: "/behavior" },
   { key: "decision", title: "Decision", href: "/decision" },
   { key: "goodbye", title: "Complete", href: "/goodbye" },
 ];
 
 function getActiveSection(pathname: string): SectionKey {
+  if (pathname.startsWith("/overview")) return "overview";
   if (pathname.startsWith("/behavior")) return "behavior";
   if (pathname.startsWith("/decision")) return "decision";
   if (pathname.startsWith("/goodbye")) return "goodbye";
-  return "home";
+  return "welcome";
 }
 
 export default function TopNav() {

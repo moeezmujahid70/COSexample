@@ -16,7 +16,7 @@ const sections: Array<{
   {
     key: "home",
     title: "Overview",
-    href: "/",
+    href: "/overview",
     caption: "Start here and choose a principle track.",
     icon: "overview",
   },

@@ -42,8 +42,30 @@ export interface GoodbyeContent {
   label: string;
 }
 
+export interface WelcomeScreenContent {
+  title: string;
+  intro: string;
+  details: string;
+  footerName: string;
+  footerEmail: string;
+  startHref: string;
+  startLabel: string;
+}
+
 const sharedMeasurement =
   "Quarterly survey where employees score all culture actions and give feedback.";
+
+export const welcomeContent: WelcomeScreenContent = {
+  title: "Welcome",
+  intro:
+    "This short, interactive example gives you a hands-on view of what a Team Culture System provides. The data and process are realistic, but not from an actual case.",
+  details:
+    "The example includes (1) two Decision Principles, each with two Actions, and (2) two Behavioral Principles, each with two Actions.",
+  footerName: "Gerald (Jerry) Wagner, PhD",
+  footerEmail: "jerry.wagner@culturesinaction.com",
+  startHref: "/overview",
+  startLabel: "Start",
+};
 
 export const homeContent: HomeScreenContent = {
   bodyText:
@@ -56,7 +78,7 @@ export const homeContent: HomeScreenContent = {
       href: "/decision",
     },
     {
-      label: "Behavior Principles",
+      label: "Behavioral Principles",
       href: "/behavior",
     },
   ],
@@ -94,7 +116,7 @@ export const categories: PrincipleCategory[] = [
           "If someone's stuck, people notice and check in-it's not just 'figure it out yourself' anymore.",
           "There's more of a 'we're in this together' feel instead of everyone staying in their own lane.",
         ],
-        nextHref: "/?from=behavior",
+        nextHref: "/overview?from=behavior",
         nextLabel: "Back to Principles Tabs",
       },
     ],
@@ -134,7 +156,7 @@ export const categories: PrincipleCategory[] = [
         ],
         nextHref: "/goodbye",
         nextLabel: "End Session",
-        secondaryHref: "/?from=behavior",
+        secondaryHref: "/overview?from=behavior",
         secondaryLabel: "Back to Principles Tab",
       },
     ],

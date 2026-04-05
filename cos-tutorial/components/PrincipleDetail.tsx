@@ -2,6 +2,7 @@ import ActionButton from "@/components/ActionButton";
 
 interface PrincipleDetailProps {
   body: string;
+  actionEyebrow?: string;
   nextHref?: string;
   nextLabel?: string;
   secondaryHref?: string;
@@ -24,6 +25,7 @@ function DetailPanel({
 
 export default function PrincipleDetail({
   body,
+  actionEyebrow,
   nextHref,
   nextLabel,
   secondaryHref,
@@ -34,18 +36,18 @@ export default function PrincipleDetail({
   return (
     <div className="space-y-4">
       <DetailPanel>
+        {actionEyebrow ? (
+          <p className="mb-4 text-center text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
+            {actionEyebrow}
+          </p>
+        ) : null}
         <p className="text-[0.98rem] leading-8 text-text-primary sm:text-[1.05rem] sm:leading-9">
           {body}
         </p>
       </DetailPanel>
 
       {(nextHref || secondaryHref) && (
-        <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
-          {nextHref && nextLabel ? (
-            <ActionButton href={nextHref} guideTargetId={nextGuideTargetId}>
-              {nextLabel}
-            </ActionButton>
-          ) : null}
+        <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:justify-end">
           {secondaryHref && secondaryLabel ? (
             <ActionButton
               href={secondaryHref}
@@ -53,6 +55,11 @@ export default function PrincipleDetail({
               guideTargetId={secondaryGuideTargetId}
             >
               {secondaryLabel}
+            </ActionButton>
+          ) : null}
+          {nextHref && nextLabel ? (
+            <ActionButton href={nextHref} guideTargetId={nextGuideTargetId}>
+              {nextLabel}
             </ActionButton>
           ) : null}
         </div>

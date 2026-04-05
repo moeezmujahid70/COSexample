@@ -3,7 +3,8 @@ import { categories, homeContent } from "@/lib/content";
 
 const VALID_HREFS = [
   "/",
-  "/?from=behavior",
+  "/overview",
+  "/overview?from=behavior",
   "/behavior",
   "/behavior/1",
   "/behavior/2",

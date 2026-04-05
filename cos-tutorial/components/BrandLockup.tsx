@@ -9,6 +9,7 @@ interface BrandLockupProps {
   titleClassName?: string;
   subtitle?: string;
   direction?: "row" | "column";
+  imageSize?: number;
 }
 
 export default function BrandLockup({
@@ -19,6 +20,7 @@ export default function BrandLockup({
   titleClassName = "",
   subtitle,
   direction = "row",
+  imageSize,
 }: BrandLockupProps) {
   const TitleTag = titleAs;
   const centered = align === "center";
@@ -31,7 +33,7 @@ export default function BrandLockup({
       : centered
         ? "items-center"
         : "items-start";
-  const imageSize = compact ? 40 : 56;
+  const logoSize = imageSize ?? (compact ? 40 : 56);
   const titleSize = compact
     ? "text-sm font-semibold leading-tight"
     : "text-3xl font-semibold tracking-tight sm:text-4xl";
@@ -43,8 +45,8 @@ export default function BrandLockup({
       <Image
         src="/assets/brand/logo_transparent.png"
         alt="Our R&D Team Culture logo"
-        width={imageSize}
-        height={imageSize}
+        width={logoSize}
+        height={logoSize}
         priority={priority}
         className="h-auto w-auto shrink-0 object-contain"
       />

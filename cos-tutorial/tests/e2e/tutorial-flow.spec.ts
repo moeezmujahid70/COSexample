@@ -19,13 +19,22 @@ test("full tutorial flow: behavior path then decision path", async ({ page }) =>
   await page.goto("/");
 
   await expect(
-    page.getByRole("main").getByText("Behavior Principles", { exact: true }),
+    page.getByRole("heading", { name: "Welcome", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Start" }),
+  ).toBeVisible();
+
+  await page.getByRole("link", { name: "Start" }).click();
+
+  await expect(
+    page.getByRole("main").getByText("Behavioral Principles", { exact: true }),
   ).toBeVisible();
   await expect(
     page.getByRole("main").getByText("Decision Principles", { exact: true }),
   ).toBeVisible();
 
-  await openHomeTrack(page, "Behavior Principles");
+  await openHomeTrack(page, "Behavioral Principles");
   await expect(page).toHaveURL("/behavior");
   await expect(
     page.getByRole("heading", {
@@ -59,7 +68,7 @@ test("full tutorial flow: behavior path then decision path", async ({ page }) =>
   ).toBeVisible();
 
   await page.getByRole("link", { name: "Back to Principles Tabs" }).click();
-  await expect(page).toHaveURL("/?from=behavior");
+  await expect(page).toHaveURL("/overview?from=behavior");
   await expect(
     page.getByRole("main").getByText("Decision Principles", { exact: true }),
   ).toBeVisible();
@@ -105,7 +114,7 @@ test("full tutorial flow: behavior path then decision path", async ({ page }) =>
 });
 
 test("direct path: decision first", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/overview");
   await openHomeTrack(page, "Decision Principles");
   await expect(page).toHaveURL("/decision");
   await page.getByRole("link", { name: /Document what was decided/i }).click();
@@ -115,7 +124,7 @@ test("direct path: decision first", async ({ page }) => {
 test("screen 5 back-to-tabs from DP2", async ({ page }) => {
   await page.goto("/decision/2");
   await page.getByRole("link", { name: "Back to Principles Tab" }).click();
-  await expect(page).toHaveURL("/?from=behavior");
+  await expect(page).toHaveURL("/overview?from=behavior");
   await expect(
     page.getByRole("main").getByText("Decision Principles", { exact: true }),
   ).toBeVisible();
@@ -129,6 +138,7 @@ test("mobile navigation menu exposes all sections", async ({ page, isMobile }) =
 
   const mobileNav = page.getByRole("navigation", { name: "Mobile navigation" });
 
+  await expect(mobileNav.getByRole("link", { name: "Welcome" })).toBeVisible();
   await expect(mobileNav.getByRole("link", { name: "Overview" })).toBeVisible();
   await expect(
     mobileNav.getByRole("link", { name: "Behavior", exact: true }),

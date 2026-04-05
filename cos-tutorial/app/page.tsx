@@ -1,10 +1,10 @@
-import HomeContent from "@/components/HomeContent";
 import PageShell from "@/components/PageShell";
+import WelcomeLanding from "@/components/WelcomeLanding";
 
 export default function HomePage() {
   return (
     <PageShell>
-      <HomeContent />
+      <WelcomeLanding />
     </PageShell>
   );
 }
