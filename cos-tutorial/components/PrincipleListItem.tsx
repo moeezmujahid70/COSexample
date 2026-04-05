@@ -30,11 +30,11 @@ export default function PrincipleListItem({
         className="group block cursor-pointer rounded-t-xl transition-colors duration-150 hover:bg-surface-page focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
       >
         <div className="flex items-center gap-4 p-4 sm:p-5">
-          <div className="min-w-0 flex-1 text-center">
-            <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
+          <div className="min-w-0 flex-1">
+            <p className="text-center text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
               Principle {number} of {total}
             </p>
-            <h3 className="mt-1 text-base font-semibold leading-6 tracking-tight text-text-primary transition-colors duration-150 group-hover:text-accent sm:text-lg">
+            <h3 className="mt-1 text-left text-base font-semibold leading-6 tracking-tight text-text-primary transition-colors duration-150 group-hover:text-accent sm:text-lg">
               {title}
             </h3>
           </div>
