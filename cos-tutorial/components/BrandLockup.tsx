@@ -48,7 +48,8 @@ export default function BrandLockup({
         width={logoSize}
         height={logoSize}
         priority={priority}
-        className="h-auto w-auto shrink-0 object-contain"
+        className="shrink-0 object-contain"
+        style={{ width: `${logoSize}px`, height: `${logoSize}px` }}
       />
       <div className={`space-y-1 ${centered && direction === "row" ? "text-left" : ""}`}>
         <TitleTag className={`${titleSize} text-text-primary ${titleClassName}`}>

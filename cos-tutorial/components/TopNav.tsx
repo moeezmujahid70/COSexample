@@ -66,6 +66,7 @@ export default function TopNav() {
           <div className="min-w-0 self-start">
             <BrandLockup
               compact
+              imageSize={46}
               titleClassName="text-[0.95rem] sm:text-sm"
             />
           </div>

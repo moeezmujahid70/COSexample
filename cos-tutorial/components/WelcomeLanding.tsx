@@ -11,23 +11,35 @@ export default function WelcomeLanding() {
 
   return (
     <section className="surface-enter rounded-[2rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f8fafb_100%)] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-      <div className="flex min-h-[calc(100vh-8.5rem)] flex-col justify-between px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-16">
+      <div className="relative flex min-h-[calc(100vh-8.5rem)] flex-col justify-between px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-16">
+        <div className="mb-8 self-start text-left text-text-primary sm:mb-0 sm:absolute sm:left-8 sm:top-8 lg:left-10 lg:top-10">
+          <p className="text-[0.82rem] font-medium leading-5 sm:text-[0.85rem]">
+            {welcomeContent.footerName}
+          </p>
+          <a
+            href={`mailto:${welcomeContent.footerEmail}`}
+            className="mt-0.5 inline-flex text-[0.82rem] leading-5 text-text-muted transition-colors duration-150 hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:text-[0.85rem]"
+          >
+            {welcomeContent.footerEmail}
+          </a>
+        </div>
+
         <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center text-center">
           <h1 className="text-[2.4rem] font-semibold tracking-tight text-text-primary sm:text-[3rem] lg:text-[3.4rem]">
             {welcomeContent.title}
           </h1>
 
-          <div className="mt-16 max-w-4xl space-y-10">
+          <div className="mt-12 max-w-4xl space-y-10 sm:mt-14">
             <p className="text-base leading-8 text-text-primary sm:text-lg sm:leading-8">
               {welcomeContent.intro}
             </p>
             <p className="text-base leading-8 text-text-primary sm:text-lg sm:leading-8">
               {detailsBeforeHighlight}
-              <span className="inline-flex rounded-lg border border-success-border bg-success-subtle px-2 py-0.5 font-semibold text-success-hover">
+              <span className="font-semibold text-text-primary">
                 {decisionHighlight}
               </span>
               {detailsBetweenHighlights}
-              <span className="inline-flex rounded-lg border border-success-border bg-success-subtle px-2 py-0.5 font-semibold text-success-hover">
+              <span className="font-semibold text-text-primary">
                 {behaviorHighlight}
               </span>
               {detailsAfterBehaviorHighlight}
@@ -41,20 +53,6 @@ export default function WelcomeLanding() {
             >
               {welcomeContent.startLabel}
             </Link>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-12 flex w-full max-w-5xl justify-start">
-          <div className="text-left text-text-primary">
-            <p className="text-[1.05rem] font-medium sm:text-[1.2rem]">
-              {welcomeContent.footerName}
-            </p>
-            <a
-              href={`mailto:${welcomeContent.footerEmail}`}
-              className="mt-1 inline-flex text-[1.05rem] transition-colors duration-150 hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:text-[1.2rem]"
-            >
-              {welcomeContent.footerEmail}
-            </a>
           </div>
         </div>
       </div>
