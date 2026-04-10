@@ -52,6 +52,32 @@ export interface WelcomeScreenContent {
   startLabel: string;
 }
 
+export interface IntroLaunchContent {
+  message: string;
+  durationMs: number;
+  nextHref: string;
+}
+
+export interface IntroConceptStep {
+  number: string;
+  title: string;
+  lines?: string[];
+}
+
+export interface IntroConceptContent {
+  titleLines: string[];
+  steps: {
+    decisionPrinciples: IntroConceptStep;
+    decisionActions: IntroConceptStep;
+    behaviorPrinciples: IntroConceptStep;
+    behaviorActions: IntroConceptStep;
+    feedbackLoop: IntroConceptStep;
+    updateActions: IntroConceptStep;
+  };
+  moveOnHref: string;
+  moveOnLabel: string;
+}
+
 const sharedMeasurement =
   "Quarterly survey where employees score all culture actions and give feedback.";
 
@@ -65,6 +91,52 @@ export const welcomeContent: WelcomeScreenContent = {
   footerEmail: "jerry.wagner@culturesinaction.com",
   startHref: "/overview",
   startLabel: "Start",
+};
+
+export const introLaunchContent: IntroLaunchContent = {
+  message:
+    "To manage a workplace culture well, you need to understand how it actually operates.",
+  durationMs: 10000,
+  nextHref: "/concept",
+};
+
+export const introConceptContent: IntroConceptContent = {
+  titleLines: [
+    "Before the example, look at the simple concept of a Culture Operating System.",
+    "Steps In Building A Culture Operating System",
+  ],
+  steps: {
+    decisionPrinciples: {
+      number: "1",
+      title: "Define Decision Principles",
+      lines: ["(How We Make", "Decisions)"],
+    },
+    decisionActions: {
+      number: "2",
+      title: "Define:",
+      lines: ["Actions", "Measurements", "Who Is Accountable"],
+    },
+    behaviorPrinciples: {
+      number: "3",
+      title: "Define Behavior Principles",
+      lines: ["(How We Behave)"],
+    },
+    behaviorActions: {
+      number: "4",
+      title: "Define:",
+      lines: ["Actions", "Measurements", "Who Is Accountable"],
+    },
+    feedbackLoop: {
+      number: "5",
+      title: "Feedback Loop",
+    },
+    updateActions: {
+      number: "6",
+      title: "Update Actions",
+    },
+  },
+  moveOnHref: "/welcome",
+  moveOnLabel: "Move On",
 };
 
 export const homeContent: HomeScreenContent = {

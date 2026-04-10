@@ -1,10 +1,5 @@
-import PageShell from "@/components/PageShell";
-import WelcomeLanding from "@/components/WelcomeLanding";
+import IntroLaunchScreen from "@/components/IntroLaunchScreen";
 
 export default function HomePage() {
-  return (
-    <PageShell>
-      <WelcomeLanding />
-    </PageShell>
-  );
+  return <IntroLaunchScreen />;
 }

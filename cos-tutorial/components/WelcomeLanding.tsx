@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { welcomeContent } from "@/lib/content";
+import IntroAutoAdvance from "@/components/IntroAutoAdvance";
 
 export default function WelcomeLanding() {
   const decisionHighlight = "(1) two Decision Principles";
@@ -10,8 +11,9 @@ export default function WelcomeLanding() {
     detailsAfterDecisionHighlight.split(behaviorHighlight);
 
   return (
-    <section className="surface-enter rounded-[2rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f8fafb_100%)] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-      <div className="relative flex min-h-[calc(100vh-8.5rem)] flex-col justify-between px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-16">
+    <section className="surface-enter border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f8fafb_100%)] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+      <IntroAutoAdvance href="/concept" delayMs={10000} />
+      <div className="relative flex min-h-[calc(100vh-8.5rem)] flex-col justify-between px-6 py-8 sm:px-10 sm:py-10 lg:px-16 lg:py-12">
         <div className="mb-8 self-start text-left text-text-primary sm:mb-0 sm:absolute sm:left-8 sm:top-8 lg:left-10 lg:top-10">
           <p className="text-[0.82rem] font-medium leading-5 sm:text-[0.85rem]">
             {welcomeContent.footerName}
@@ -25,15 +27,15 @@ export default function WelcomeLanding() {
         </div>
 
         <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center text-center">
-          <h1 className="text-[2.4rem] font-semibold tracking-tight text-text-primary sm:text-[3rem] lg:text-[3.4rem]">
+          <h1 className="text-[1.7rem] font-semibold tracking-tight text-text-primary sm:text-[2rem] lg:text-[2.3rem]">
             {welcomeContent.title}
           </h1>
 
-          <div className="mt-12 max-w-4xl space-y-10 sm:mt-14">
-            <p className="text-base leading-8 text-text-primary sm:text-lg sm:leading-8">
+          <div className="mt-8 max-w-4xl space-y-6 sm:mt-10">
+            <p className="text-sm leading-7 text-text-primary sm:text-base sm:leading-7">
               {welcomeContent.intro}
             </p>
-            <p className="text-base leading-8 text-text-primary sm:text-lg sm:leading-8">
+            <p className="text-sm leading-7 text-text-primary sm:text-base sm:leading-7">
               {detailsBeforeHighlight}
               <span className="font-semibold text-text-primary">
                 {decisionHighlight}
@@ -46,10 +48,13 @@ export default function WelcomeLanding() {
             </p>
           </div>
 
-          <div className="mt-14">
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <p className="text-sm font-medium leading-6 text-red-600">
+              Click around. You can&apos;t get lost or make a mistake.
+            </p>
             <Link
               href={welcomeContent.startHref}
-              className="surface-lift inline-flex min-h-11 items-center justify-center rounded-xl bg-success px-8 py-3 text-base font-semibold text-white transition-colors duration-150 hover:bg-success-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="surface-lift inline-flex min-h-10 items-center justify-center rounded-sm bg-success px-8 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-success-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-white"
             >
               {welcomeContent.startLabel}
             </Link>

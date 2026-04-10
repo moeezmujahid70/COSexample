@@ -33,7 +33,7 @@ export default function BrandLockup({
       : centered
         ? "items-center"
         : "items-start";
-  const logoSize = imageSize ?? (compact ? 40 : 56);
+  const logoSize = imageSize ?? (compact ? 36 : 52);
   const titleSize = compact
     ? "text-sm font-semibold leading-tight"
     : "text-3xl font-semibold tracking-tight sm:text-4xl";
@@ -43,7 +43,7 @@ export default function BrandLockup({
       className={`flex ${direction === "row" ? "flex-row gap-1" : "flex-col gap-3"} ${stackClass} ${alignmentClass}`}
     >
       <Image
-        src="/assets/brand/logo_transparent.png"
+        src="/assets/brand/logo.png"
         alt="Our R&D Team Culture logo"
         width={logoSize}
         height={logoSize}

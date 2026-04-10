@@ -14,8 +14,13 @@ const confettiPieces = [
 
 export default function CompletionCelebration({
   title,
+  contact,
 }: {
   title: string;
+  contact?: {
+    name: string;
+    email: string;
+  };
 }) {
   return (
     <section className="surface-enter relative overflow-hidden rounded-[1.75rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f6fffb_100%)] px-6 py-10 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:px-10">
@@ -61,6 +66,23 @@ export default function CompletionCelebration({
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-text-muted sm:text-[0.95rem]">
           The review flow is complete. You can restart the walkthrough at any time.
         </p>
+
+        {contact ? (
+          <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-surface-border/90 bg-white/80 px-5 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
+              Contact
+            </p>
+            <p className="mt-2 text-sm font-medium text-text-primary">
+              {contact.name}
+            </p>
+            <a
+              href={`mailto:${contact.email}`}
+              className="mt-1 inline-flex text-sm text-text-muted transition-colors duration-150 hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              {contact.email}
+            </a>
+          </div>
+        ) : null}
 
         <div className="mt-8 flex justify-center">
           <Link

@@ -8,14 +8,17 @@ import { usePathname } from "next/navigation";
 type SectionKey = "welcome" | "overview" | "behavior" | "decision" | "goodbye";
 
 const sections: Array<{ key: SectionKey; title: string; href: string }> = [
-  { key: "welcome", title: "Welcome", href: "/" },
+  { key: "welcome", title: "Welcome", href: "/welcome" },
   { key: "overview", title: "Overview", href: "/overview" },
   { key: "behavior", title: "Behavior", href: "/behavior" },
   { key: "decision", title: "Decision", href: "/decision" },
   { key: "goodbye", title: "Complete", href: "/goodbye" },
 ];
 
+const logoutHref = "/";
+
 function getActiveSection(pathname: string): SectionKey {
+  if (pathname.startsWith("/welcome")) return "welcome";
   if (pathname.startsWith("/overview")) return "overview";
   if (pathname.startsWith("/behavior")) return "behavior";
   if (pathname.startsWith("/decision")) return "decision";
@@ -66,7 +69,7 @@ export default function TopNav() {
           <div className="min-w-0 self-start">
             <BrandLockup
               compact
-              imageSize={46}
+              imageSize={30}
               titleClassName="text-[0.95rem] sm:text-sm"
             />
           </div>
@@ -124,32 +127,94 @@ export default function TopNav() {
                     </Link>
                   );
                 })}
+
+                <div className="my-2 border-t border-surface-border/80" />
+
+                <Link
+                  href={logoutHref}
+                  className="flex h-11 items-center justify-between rounded-xl px-3 text-sm font-medium text-text-primary transition-colors duration-150 hover:bg-surface-tint focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-card"
+                >
+                  <span>Logout</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4 fill-none stroke-current text-text-muted"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M10 17l5-5-5-5"
+                      strokeWidth="1.9"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M15 12H3.75"
+                      strokeWidth="1.9"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M20 4.75v14.5"
+                      strokeWidth="1.9"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </Link>
               </nav>
             ) : null}
           </div>
         </div>
 
-        <nav
-          className="hidden flex-wrap items-center gap-1 rounded-full border border-surface-border bg-surface-card p-1 shadow-[0_6px_20px_rgba(15,23,42,0.05)] sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:rounded-full"
-          aria-label="Main navigation"
-        >
-          {sections.map((section) => {
-            const active = section.key === activeSection;
-            return (
-              <Link
-                key={section.key}
-                href={section.href}
-                className={`inline-flex h-9 items-center justify-center rounded-full px-3.5 text-sm font-medium transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-card ${
-                  active
-                    ? "bg-accent-subtle text-accent-strong"
-                    : "text-text-muted hover:bg-surface-tint hover:text-text-primary"
-                }`}
-              >
-                {section.title}
-              </Link>
-            );
-          })}
-        </nav>
+        <div className="hidden items-center gap-3 sm:flex">
+          <nav
+            className="flex flex-wrap items-center gap-1 rounded-full border border-surface-border bg-surface-card p-1 shadow-[0_6px_20px_rgba(15,23,42,0.05)]"
+            aria-label="Main navigation"
+          >
+            {sections.map((section) => {
+              const active = section.key === activeSection;
+              return (
+                <Link
+                  key={section.key}
+                  href={section.href}
+                  className={`inline-flex h-9 items-center justify-center rounded-full px-3.5 text-sm font-medium transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-card ${
+                    active
+                      ? "bg-accent-subtle text-accent-strong"
+                      : "text-text-muted hover:bg-surface-tint hover:text-text-primary"
+                  }`}
+                >
+                  {section.title}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <Link
+            href={logoutHref}
+            className="surface-lift inline-flex h-10 items-center justify-center gap-2 rounded-full border border-surface-border bg-white/75 px-4 text-sm font-medium text-text-primary shadow-[0_6px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface-card focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-4 w-4 fill-none stroke-current text-text-muted"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 17l5-5-5-5"
+                strokeWidth="1.9"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M15 12H3.75"
+                strokeWidth="1.9"
+                strokeLinecap="round"
+              />
+              <path
+                d="M20 4.75v14.5"
+                strokeWidth="1.9"
+                strokeLinecap="round"
+              />
+            </svg>
+            Logout
+          </Link>
+        </div>
       </div>
     </header>
   );

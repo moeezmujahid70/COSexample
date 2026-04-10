@@ -11,7 +11,7 @@ export default function HomeContent() {
             align="center"
             priority
             titleAs="h1"
-            imageSize={84}
+            imageSize={60}
             titleClassName="text-[2.3rem] sm:text-[2.85rem]"
           />
         </div>
