@@ -25,8 +25,8 @@ export default function CompletionCelebration({
   };
 }) {
   return (
-    <section className="surface-enter relative overflow-hidden rounded-[1.75rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f6fffb_100%)] px-6 py-10 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:px-10">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-40">
+    <section className="surface-enter relative w-full overflow-hidden rounded-[1.5rem] border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f6fffb_100%)] px-4 py-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:rounded-[1.75rem] sm:px-8 sm:py-8 lg:px-10 lg:py-9">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-28 sm:h-36">
         {confettiPieces.map((piece, index) => (
           <span
             key={index}
@@ -44,11 +44,11 @@ export default function CompletionCelebration({
         ))}
       </div>
 
-      <div className="relative mx-auto max-w-2xl text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-success-border bg-success-subtle text-success-hover shadow-[0_10px_24px_rgba(16,185,129,0.16)]">
+      <div className="relative mx-auto max-w-xl text-center">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-success-border bg-success-subtle text-success-hover shadow-[0_10px_24px_rgba(16,185,129,0.16)] sm:h-14 sm:w-14">
           <svg
             viewBox="0 0 24 24"
-            className="h-6 w-6 fill-none stroke-current"
+            className="h-5 w-5 fill-none stroke-current sm:h-6 sm:w-6"
             aria-hidden="true"
           >
             <path
@@ -59,29 +59,29 @@ export default function CompletionCelebration({
             />
           </svg>
         </div>
-        <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent-strong">
+        <p className="mt-4 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent-strong sm:mt-5">
           Session Complete
         </p>
-        <h2 className="mt-3 text-4xl font-semibold tracking-tight text-text-primary sm:text-[3.25rem]">
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-text-primary sm:mt-3 sm:text-[3.25rem]">
           {title}
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-text-muted sm:text-[0.95rem]">
+        <p className="mx-auto mt-3 max-w-[34rem] text-sm leading-6 text-text-muted sm:text-[0.95rem] sm:leading-7">
           The review flow is complete. You can restart the walkthrough at any time.
         </p>
 
         {followUpNote ? (
-          <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-surface-border/90 bg-white/85 px-5 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)] sm:px-6">
+          <div className="mx-auto mt-5 w-full max-w-xl rounded-2xl border border-surface-border/90 bg-white/85 px-4 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)] sm:mt-6 sm:px-6">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
               Next Step
             </p>
-            <p className="mt-2 text-sm leading-7 text-text-primary sm:text-[0.95rem]">
+            <p className="mt-2 text-sm leading-6 text-text-primary sm:text-[0.95rem] sm:leading-7">
               {followUpNote}
             </p>
           </div>
         ) : null}
 
         {contact ? (
-          <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-surface-border/90 bg-white/80 px-5 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
+          <div className="mx-auto mt-5 w-full max-w-xl rounded-2xl border border-surface-border/90 bg-white/80 px-4 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)] sm:mt-6 sm:px-5">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
               Contact
             </p>
@@ -90,17 +90,17 @@ export default function CompletionCelebration({
             </p>
             <a
               href={`mailto:${contact.email}`}
-              className="mt-1 inline-flex text-sm text-text-muted transition-colors duration-150 hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="mt-1 inline-flex break-all text-sm text-text-muted transition-colors duration-150 hover:text-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:break-normal"
             >
               {contact.email}
             </a>
           </div>
         ) : null}
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6 flex justify-center sm:mt-8">
           <Link
             href="/"
-            className="surface-lift inline-flex items-center justify-center gap-2 rounded-xl bg-success px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(16,185,129,0.24)] hover:-translate-y-0.5 hover:bg-success-hover hover:shadow-[0_18px_34px_rgba(16,185,129,0.26)] focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2"
+            className="surface-lift inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-success px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_28px_rgba(16,185,129,0.24)] hover:-translate-y-0.5 hover:bg-success-hover hover:shadow-[0_18px_34px_rgba(16,185,129,0.26)] focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 sm:w-auto"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current" aria-hidden="true">
               <path d="M1 4v6h6M23 20v-6h-6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

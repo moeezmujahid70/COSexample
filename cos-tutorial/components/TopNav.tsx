@@ -12,7 +12,7 @@ const sections: Array<{ key: SectionKey; title: string; href: string }> = [
   { key: "overview", title: "Overview", href: "/overview" },
   { key: "behavior", title: "Behavior", href: "/behavior" },
   { key: "decision", title: "Decision", href: "/decision" },
-  { key: "goodbye", title: "Complete", href: "/goodbye" },
+  { key: "goodbye", title: "I'm Done", href: "/goodbye" },
 ];
 
 const logoutHref = "/";

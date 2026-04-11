@@ -61,49 +61,51 @@ function MobileConceptFlow() {
   const steps = introConceptContent.steps;
 
   return (
-    <div className="space-y-5 lg:hidden">
+    <div className="mx-auto flex w-full max-w-[28rem] flex-col gap-3 pb-1 lg:hidden">
       <IntroBox
         number={steps.decisionPrinciples.number}
         title={steps.decisionPrinciples.title}
         lines={steps.decisionPrinciples.lines}
+        className="pt-5"
       />
-      <div className="mx-auto h-6 w-0.5 bg-accent" />
+      <div className="mx-auto h-5 w-0.5 bg-accent" />
       <IntroBox
         number={steps.decisionActions.number}
         title={steps.decisionActions.title}
         lines={steps.decisionActions.lines}
         list
-        className="text-left"
+        className="pt-5"
         titleClassName="text-left"
       />
-      <div className="mx-auto h-6 w-0.5 bg-accent" />
+      <div className="mx-auto h-5 w-0.5 bg-accent" />
       <IntroBox
         number={steps.behaviorPrinciples.number}
         title={steps.behaviorPrinciples.title}
         lines={steps.behaviorPrinciples.lines}
+        className="pt-5"
       />
-      <div className="mx-auto h-6 w-0.5 bg-accent" />
+      <div className="mx-auto h-5 w-0.5 bg-accent" />
       <IntroBox
         number={steps.behaviorActions.number}
         title={steps.behaviorActions.title}
         lines={steps.behaviorActions.lines}
         list
-        className="text-left"
+        className="pt-5"
         titleClassName="text-left"
       />
-      <div className="mx-auto h-6 w-0.5 bg-accent" />
+      <div className="mx-auto h-5 w-0.5 bg-accent" />
       <IntroBox
         number={steps.feedbackLoop.number}
         title={steps.feedbackLoop.title}
-        className="min-h-[4rem] flex items-center justify-center"
+        className="flex min-h-[4.5rem] items-center justify-center pt-5"
       />
-      <div className="mx-auto h-6 w-0.5 bg-accent" />
+      <div className="mx-auto h-5 w-0.5 bg-accent" />
       <IntroBox
         number={steps.updateActions.number}
         title={steps.updateActions.title}
-        className="min-h-[4rem] flex items-center justify-center"
+        className="flex min-h-[4.5rem] items-center justify-center pt-5"
       />
-      <div className="pt-2">
+      <div className="pt-3">
         <ActionButton href={introConceptContent.moveOnHref}>
           {introConceptContent.moveOnLabel}
         </ActionButton>
@@ -222,9 +224,9 @@ export default function IntroConceptScreen() {
   return (
     <IntroShell>
       <div className="flex flex-1 flex-col">
-        <header className="surface-enter px-4 pb-4 text-center sm:px-8 lg:pb-4">
+        <header className="surface-enter px-2 pb-4 text-center sm:px-8 lg:pb-4">
           <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-success sm:w-24" />
-          <div className="mx-auto max-w-6xl text-balance text-sm font-semibold leading-[1.3] tracking-tight text-text-primary sm:text-base lg:text-lg">
+          <div className="mx-auto max-w-3xl text-balance text-sm font-semibold leading-[1.35] tracking-tight text-text-primary sm:max-w-6xl sm:text-base lg:text-lg">
             {introConceptContent.titleLines.map((line) => (
               <p key={line}>{line}</p>
             ))}

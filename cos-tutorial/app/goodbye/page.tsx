@@ -5,7 +5,7 @@ import { goodbyeContent } from "@/lib/content";
 export default function GoodbyePage() {
   return (
     <PageShell>
-      <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="flex min-h-[calc(100vh-9rem)] items-start justify-center py-2 sm:min-h-[60vh] sm:items-center sm:py-4">
         <CompletionCelebration
           title={goodbyeContent.label}
           followUpNote={goodbyeContent.followUpNote}

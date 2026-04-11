@@ -36,9 +36,9 @@ const sections: Array<{
   },
   {
     key: "goodbye",
-    title: "Complete",
+    title: "I'm Done",
     href: "/goodbye",
-    caption: "Session close and completion state.",
+    caption: "Exit the walkthrough and go to the closing screen.",
     icon: "complete",
   },
 ];
