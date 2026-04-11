@@ -8,6 +8,7 @@ export default function GoodbyePage() {
       <div className="flex min-h-[60vh] items-center justify-center">
         <CompletionCelebration
           title={goodbyeContent.label}
+          followUpNote={goodbyeContent.followUpNote}
           contact={{
             name: "Gerald (Jerry) Wagner, PhD",
             email: "jerry.wagner@culturesinaction.com",

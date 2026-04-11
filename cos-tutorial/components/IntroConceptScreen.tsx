@@ -114,47 +114,49 @@ function MobileConceptFlow() {
 
 function DesktopConceptFlow() {
   const steps = introConceptContent.steps;
+  const desktopBoxWidth = "w-[19rem] xl:w-[20rem]";
+  const desktopPrimaryBoxHeight = "min-h-[8.5rem]";
 
   return (
     <div className="hidden lg:flex lg:flex-1 lg:flex-col">
       {/* Diagram — vertically centred in the remaining space */}
       <div className="flex flex-1 flex-col justify-center">
         {/* Two-column: Decision (left) | Behavior (right) */}
-        <div className="grid grid-cols-2 pt-8">
+        <div className="mx-auto grid max-w-[50rem] grid-cols-2 gap-x-10 pt-6 xl:max-w-[52rem] xl:gap-x-12">
           {/* Left column — centred at 25 % of container width */}
-          <div className="flex flex-col items-center px-12">
+          <div className="flex flex-col items-center">
             <IntroBox
               number={steps.decisionPrinciples.number}
               title={steps.decisionPrinciples.title}
               lines={steps.decisionPrinciples.lines}
-              className="w-[22rem]"
+              className={`${desktopBoxWidth} ${desktopPrimaryBoxHeight}`}
             />
-            <div className="h-5 w-px bg-accent" />
+            <div className="h-3 w-px bg-accent" />
             <IntroBox
               number={steps.decisionActions.number}
               title={steps.decisionActions.title}
               lines={steps.decisionActions.lines}
               list
-              className="w-[24rem]"
+              className={`${desktopBoxWidth} ${desktopPrimaryBoxHeight}`}
               titleClassName="text-left"
             />
           </div>
 
           {/* Right column — centred at 75 % of container width */}
-          <div className="flex flex-col items-center px-12">
+          <div className="flex flex-col items-center">
             <IntroBox
               number={steps.behaviorPrinciples.number}
               title={steps.behaviorPrinciples.title}
               lines={steps.behaviorPrinciples.lines}
-              className="w-[22rem]"
+              className={`${desktopBoxWidth} ${desktopPrimaryBoxHeight}`}
             />
-            <div className="h-5 w-px bg-accent" />
+            <div className="h-3 w-px bg-accent" />
             <IntroBox
               number={steps.behaviorActions.number}
               title={steps.behaviorActions.title}
               lines={steps.behaviorActions.lines}
               list
-              className="w-[24rem]"
+              className={`${desktopBoxWidth} ${desktopPrimaryBoxHeight}`}
               titleClassName="text-left"
             />
           </div>
@@ -163,27 +165,27 @@ function DesktopConceptFlow() {
         {/* SVG: L-shaped arms from each column centre (25 %, 75 %) converging to 50 % */}
         <svg
           width="100%"
-          height="48"
-          viewBox="0 0 100 48"
+          height="34"
+          viewBox="0 0 100 34"
           preserveAspectRatio="none"
           style={{ display: "block", overflow: "visible" }}
         >
           <polyline
-            points="25,0 25,38 50,38"
+            points="25,0 25,24 50,24"
             stroke="#2563EB"
             fill="none"
             vectorEffect="non-scaling-stroke"
             style={{ strokeWidth: "1.5px" }}
           />
           <polyline
-            points="75,0 75,38 50,38"
+            points="75,0 75,24 50,24"
             stroke="#2563EB"
             fill="none"
             vectorEffect="non-scaling-stroke"
             style={{ strokeWidth: "1.5px" }}
           />
           <line
-            x1="50" y1="38" x2="50" y2="48"
+            x1="50" y1="24" x2="50" y2="34"
             stroke="#2563EB"
             vectorEffect="non-scaling-stroke"
             style={{ strokeWidth: "1.5px" }}
@@ -195,16 +197,16 @@ function DesktopConceptFlow() {
           <IntroBox
             number={steps.feedbackLoop.number}
             title={steps.feedbackLoop.title}
-            className="flex w-[18rem] min-h-[4rem] items-center justify-center"
+            className={`flex ${desktopBoxWidth} min-h-[4.5rem] items-center justify-center`}
           />
-          <div className="h-5 w-px bg-accent" />
+          <div className="h-3 w-px bg-accent" />
           <div className="relative">
             <IntroBox
               number={steps.updateActions.number}
               title={steps.updateActions.title}
-              className="flex w-[18rem] min-h-[4rem] items-center justify-center"
+              className={`flex ${desktopBoxWidth} min-h-[4.5rem] items-center justify-center`}
             />
-            <div className="absolute left-full top-1/2 ml-20 w-max -translate-y-1/2">
+            <div className="absolute left-full top-1/2 ml-10 w-max -translate-y-1/2">
               <ActionButton href={introConceptContent.moveOnHref}>
                 {introConceptContent.moveOnLabel}
               </ActionButton>

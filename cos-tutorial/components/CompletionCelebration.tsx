@@ -14,9 +14,11 @@ const confettiPieces = [
 
 export default function CompletionCelebration({
   title,
+  followUpNote,
   contact,
 }: {
   title: string;
+  followUpNote?: string;
   contact?: {
     name: string;
     email: string;
@@ -66,6 +68,17 @@ export default function CompletionCelebration({
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-text-muted sm:text-[0.95rem]">
           The review flow is complete. You can restart the walkthrough at any time.
         </p>
+
+        {followUpNote ? (
+          <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-surface-border/90 bg-white/85 px-5 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)] sm:px-6">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent-strong">
+              Next Step
+            </p>
+            <p className="mt-2 text-sm leading-7 text-text-primary sm:text-[0.95rem]">
+              {followUpNote}
+            </p>
+          </div>
+        ) : null}
 
         {contact ? (
           <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-surface-border/90 bg-white/80 px-5 py-4 text-left shadow-[0_10px_24px_rgba(15,23,42,0.04)]">

@@ -40,6 +40,7 @@ export interface HomeScreenContent {
 export interface GoodbyeContent {
   icon: string;
   label: string;
+  followUpNote: string;
 }
 
 export interface WelcomeScreenContent {
@@ -96,7 +97,7 @@ export const welcomeContent: WelcomeScreenContent = {
 export const introLaunchContent: IntroLaunchContent = {
   message:
     "To manage a workplace culture well, you need to understand how it actually operates.",
-  durationMs: 10000,
+  durationMs: 5000,
   nextHref: "/concept",
 };
 
@@ -109,7 +110,7 @@ export const introConceptContent: IntroConceptContent = {
     decisionPrinciples: {
       number: "1",
       title: "Define Decision Principles",
-      lines: ["(How We Make", "Decisions)"],
+      lines: ["(How We Make Decisions)"],
     },
     decisionActions: {
       number: "2",
@@ -238,6 +239,8 @@ export const categories: PrincipleCategory[] = [
 export const goodbyeContent: GoodbyeContent = {
   icon: "👍",
   label: "Goodbye",
+  followUpNote:
+    "If you would like to experience an actual example with your team, your data, and with no fee or obligation, that would be great.",
 };
 
 export function getCategory(slug: CategorySlug): PrincipleCategory {
