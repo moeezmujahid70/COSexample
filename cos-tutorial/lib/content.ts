@@ -103,7 +103,7 @@ export const introLaunchContent: IntroLaunchContent = {
 
 export const introConceptContent: IntroConceptContent = {
   titleLines: [
-    "Before the example, look at the simple concept of a Culture Operating System.",
+    "Before an example, look at the simple concept of a Culture Operating System.",
     "Steps In Building A Culture Operating System",
   ],
   steps: {

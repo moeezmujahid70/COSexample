@@ -48,12 +48,14 @@ export default function WelcomeLanding() {
           </div>
 
           <div className="mt-8 flex flex-col items-center gap-3">
-            <p className="text-sm font-medium leading-6 text-red-600">
-              Click around. You can&apos;t get lost or make a mistake.
-            </p>
+            <div className="w-full max-w-[32rem] rounded-2xl border border-red-200 bg-red-50/90 px-4 py-3 shadow-[0_10px_24px_rgba(239,68,68,0.08)]">
+              <p className="text-center text-sm font-semibold leading-6 text-red-600 sm:text-[0.95rem]">
+                Click around. You can&apos;t get lost or make a mistake.
+              </p>
+            </div>
             <Link
               href={welcomeContent.startHref}
-              className="surface-lift inline-flex min-h-10 items-center justify-center rounded-sm bg-success px-8 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-success-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="surface-lift inline-flex min-h-11 w-full items-center justify-center rounded-sm bg-success px-8 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-success-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:min-h-10 sm:w-auto sm:py-2.5"
             >
               {welcomeContent.startLabel}
             </Link>

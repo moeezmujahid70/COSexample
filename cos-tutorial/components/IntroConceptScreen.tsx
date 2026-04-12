@@ -3,6 +3,9 @@ import IntroShell from "@/components/IntroShell";
 import LogoutButton from "@/components/LogoutButton";
 import { introConceptContent } from "@/lib/content";
 
+const connectorLineClass = "bg-[#22A7C8]";
+const connectorStrokeColor = "#22A7C8";
+
 function NumberBadge({ value }: { value: string }) {
   return (
     <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent-strong bg-accent text-base font-semibold text-white">
@@ -69,7 +72,7 @@ function MobileConceptFlow() {
         lines={steps.decisionPrinciples.lines}
         className="pt-5"
       />
-      <div className="mx-auto h-5 w-0.5 bg-accent" />
+      <div className={`mx-auto h-5 w-0.5 ${connectorLineClass}`} />
       <IntroBox
         number={steps.decisionActions.number}
         title={steps.decisionActions.title}
@@ -78,14 +81,14 @@ function MobileConceptFlow() {
         className="pt-5"
         titleClassName="text-left"
       />
-      <div className="mx-auto h-5 w-0.5 bg-accent" />
+      <div className={`mx-auto h-5 w-0.5 ${connectorLineClass}`} />
       <IntroBox
         number={steps.behaviorPrinciples.number}
         title={steps.behaviorPrinciples.title}
         lines={steps.behaviorPrinciples.lines}
         className="pt-5"
       />
-      <div className="mx-auto h-5 w-0.5 bg-accent" />
+      <div className={`mx-auto h-5 w-0.5 ${connectorLineClass}`} />
       <IntroBox
         number={steps.behaviorActions.number}
         title={steps.behaviorActions.title}
@@ -94,13 +97,13 @@ function MobileConceptFlow() {
         className="pt-5"
         titleClassName="text-left"
       />
-      <div className="mx-auto h-5 w-0.5 bg-accent" />
+      <div className={`mx-auto h-5 w-0.5 ${connectorLineClass}`} />
       <IntroBox
         number={steps.feedbackLoop.number}
         title={steps.feedbackLoop.title}
         className="flex min-h-[4.5rem] items-center justify-center pt-5"
       />
-      <div className="mx-auto h-5 w-0.5 bg-accent" />
+      <div className={`mx-auto h-5 w-0.5 ${connectorLineClass}`} />
       <IntroBox
         number={steps.updateActions.number}
         title={steps.updateActions.title}
@@ -135,7 +138,7 @@ function DesktopConceptFlow() {
               lines={steps.decisionPrinciples.lines}
               className={`${desktopBoxWidth} ${desktopPrimaryBoxHeight}`}
             />
-            <div className="h-3 w-px bg-accent" />
+            <div className={`h-3 w-px ${connectorLineClass}`} />
             <IntroBox
               number={steps.decisionActions.number}
               title={steps.decisionActions.title}
@@ -154,7 +157,7 @@ function DesktopConceptFlow() {
               lines={steps.behaviorPrinciples.lines}
               className={`${desktopBoxWidth} ${desktopPrimaryBoxHeight}`}
             />
-            <div className="h-3 w-px bg-accent" />
+            <div className={`h-3 w-px ${connectorLineClass}`} />
             <IntroBox
               number={steps.behaviorActions.number}
               title={steps.behaviorActions.title}
@@ -176,21 +179,21 @@ function DesktopConceptFlow() {
         >
           <polyline
             points="25,0 25,24 50,24"
-            stroke="#2563EB"
+            stroke={connectorStrokeColor}
             fill="none"
             vectorEffect="non-scaling-stroke"
             style={{ strokeWidth: "1.5px" }}
           />
           <polyline
             points="75,0 75,24 50,24"
-            stroke="#2563EB"
+            stroke={connectorStrokeColor}
             fill="none"
             vectorEffect="non-scaling-stroke"
             style={{ strokeWidth: "1.5px" }}
           />
           <line
             x1="50" y1="24" x2="50" y2="34"
-            stroke="#2563EB"
+            stroke={connectorStrokeColor}
             vectorEffect="non-scaling-stroke"
             style={{ strokeWidth: "1.5px" }}
           />
@@ -203,7 +206,7 @@ function DesktopConceptFlow() {
             title={steps.feedbackLoop.title}
             className={`flex ${desktopBoxWidth} min-h-[4.5rem] items-center justify-center`}
           />
-          <div className="h-3 w-px bg-accent" />
+          <div className={`h-3 w-px ${connectorLineClass}`} />
           <div className="relative">
             <IntroBox
               number={steps.updateActions.number}
