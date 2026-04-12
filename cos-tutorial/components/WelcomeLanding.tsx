@@ -1,6 +1,6 @@
 import Link from "next/link";
+import LogoutButton from "@/components/LogoutButton";
 import { welcomeContent } from "@/lib/content";
-import IntroAutoAdvance from "@/components/IntroAutoAdvance";
 
 export default function WelcomeLanding() {
   const decisionHighlight = "(1) two Decision Principles";
@@ -12,7 +12,6 @@ export default function WelcomeLanding() {
 
   return (
     <section className="surface-enter border border-surface-border bg-[linear-gradient(180deg,#ffffff_0%,#f8fafb_100%)] shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-      <IntroAutoAdvance href="/concept" delayMs={10000} />
       <div className="relative flex min-h-[calc(100vh-8.5rem)] flex-col justify-between px-6 py-8 sm:px-10 sm:py-10 lg:px-16 lg:py-12">
         <div className="mb-8 self-start text-left text-text-primary sm:mb-0 sm:absolute sm:left-8 sm:top-8 lg:left-10 lg:top-10">
           <p className="text-[0.82rem] font-medium leading-5 sm:text-[0.85rem]">
@@ -59,6 +58,10 @@ export default function WelcomeLanding() {
               {welcomeContent.startLabel}
             </Link>
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-end">
+          <LogoutButton />
         </div>
       </div>
     </section>

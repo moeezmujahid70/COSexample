@@ -1,5 +1,6 @@
 import ActionButton from "@/components/ActionButton";
 import IntroShell from "@/components/IntroShell";
+import LogoutButton from "@/components/LogoutButton";
 import { introConceptContent } from "@/lib/content";
 
 function NumberBadge({ value }: { value: string }) {
@@ -105,10 +106,11 @@ function MobileConceptFlow() {
         title={steps.updateActions.title}
         className="flex min-h-[4.5rem] items-center justify-center pt-5"
       />
-      <div className="pt-3">
+      <div className="flex flex-col gap-3 pt-3 sm:flex-row sm:justify-end">
         <ActionButton href={introConceptContent.moveOnHref}>
           {introConceptContent.moveOnLabel}
         </ActionButton>
+        <LogoutButton />
       </div>
     </div>
   );
@@ -208,10 +210,11 @@ function DesktopConceptFlow() {
               title={steps.updateActions.title}
               className={`flex ${desktopBoxWidth} min-h-[4.5rem] items-center justify-center`}
             />
-            <div className="absolute left-full top-1/2 ml-10 w-max -translate-y-1/2">
+            <div className="absolute left-full top-1/2 ml-10 flex w-max -translate-y-1/2 flex-col gap-3 xl:flex-row">
               <ActionButton href={introConceptContent.moveOnHref}>
                 {introConceptContent.moveOnLabel}
               </ActionButton>
+              <LogoutButton />
             </div>
           </div>
         </div>

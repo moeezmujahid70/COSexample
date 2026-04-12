@@ -1,4 +1,5 @@
 import ActionButton from "@/components/ActionButton";
+import LogoutButton from "@/components/LogoutButton";
 
 interface PrincipleDetailProps {
   body: string;
@@ -33,6 +34,8 @@ export default function PrincipleDetail({
   nextGuideTargetId,
   secondaryGuideTargetId,
 }: PrincipleDetailProps) {
+  const showLogoutButton = nextHref !== "/goodbye";
+
   return (
     <div className="space-y-4">
       <DetailPanel>
@@ -62,6 +65,7 @@ export default function PrincipleDetail({
               {nextLabel}
             </ActionButton>
           ) : null}
+          {showLogoutButton ? <LogoutButton /> : null}
         </div>
       )}
     </div>

@@ -1,4 +1,5 @@
 import BrandLockup from "@/components/BrandLockup";
+import LogoutButton from "@/components/LogoutButton";
 import PrincipleCard from "@/components/PrincipleCard";
 import { homeContent } from "@/lib/content";
 
@@ -27,6 +28,10 @@ export default function HomeContent() {
           />
         ))}
       </section>
+
+      <div className="flex justify-end pt-2">
+        <LogoutButton />
+      </div>
     </div>
   );
 }

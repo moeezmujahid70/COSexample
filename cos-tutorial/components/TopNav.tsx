@@ -15,8 +15,6 @@ const sections: Array<{ key: SectionKey; title: string; href: string }> = [
   { key: "goodbye", title: "I'm Done", href: "/goodbye" },
 ];
 
-const logoutHref = "/";
-
 function getActiveSection(pathname: string): SectionKey {
   if (pathname.startsWith("/welcome")) return "welcome";
   if (pathname.startsWith("/overview")) return "overview";
@@ -128,36 +126,6 @@ export default function TopNav() {
                   );
                 })}
 
-                <div className="my-2 border-t border-surface-border/80" />
-
-                <Link
-                  href={logoutHref}
-                  className="flex h-11 items-center justify-between rounded-xl px-3 text-sm font-medium text-text-primary transition-colors duration-150 hover:bg-surface-tint focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-card"
-                >
-                  <span>Logout</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-4 w-4 fill-none stroke-current text-text-muted"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M10 17l5-5-5-5"
-                      strokeWidth="1.9"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M15 12H3.75"
-                      strokeWidth="1.9"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M20 4.75v14.5"
-                      strokeWidth="1.9"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </Link>
               </nav>
             ) : null}
           </div>
@@ -185,35 +153,6 @@ export default function TopNav() {
               );
             })}
           </nav>
-
-          <Link
-            href={logoutHref}
-            className="surface-lift inline-flex h-10 items-center justify-center gap-2 rounded-full border border-surface-border bg-white/75 px-4 text-sm font-medium text-text-primary shadow-[0_6px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface-card focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-4 w-4 fill-none stroke-current text-text-muted"
-              aria-hidden="true"
-            >
-              <path
-                d="M10 17l5-5-5-5"
-                strokeWidth="1.9"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M15 12H3.75"
-                strokeWidth="1.9"
-                strokeLinecap="round"
-              />
-              <path
-                d="M20 4.75v14.5"
-                strokeWidth="1.9"
-                strokeLinecap="round"
-              />
-            </svg>
-            Logout
-          </Link>
         </div>
       </div>
     </header>

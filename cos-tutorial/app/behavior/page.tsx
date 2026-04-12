@@ -1,5 +1,6 @@
 import PageShell from "@/components/PageShell";
 import PrincipleListItem from "@/components/PrincipleListItem";
+import LogoutButton from "@/components/LogoutButton";
 import TrackComment from "@/components/TrackComment";
 import Link from "next/link";
 import { getCategory } from "@/lib/content";
@@ -27,13 +28,14 @@ export default function BehaviorPage() {
           ))}
         </div>
 
-        <div className="flex justify-end pt-2">
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:justify-end">
           <Link
             href="/overview"
             className="surface-lift inline-flex min-h-11 items-center justify-center rounded-xl bg-success px-5 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-success-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2 focus-visible:ring-offset-surface-page"
           >
             Back to principles
           </Link>
+          <LogoutButton />
         </div>
       </div>
     </PageShell>
