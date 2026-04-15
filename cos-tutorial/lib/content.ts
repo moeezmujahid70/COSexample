@@ -86,7 +86,7 @@ const sharedMeasurement =
 export const welcomeContent: WelcomeScreenContent = {
   title: "Welcome",
   intro:
-    "This short, interactive example gives you a hands-on view of what a Team Culture System provides. The data and process are realistic, but not from an actual case.",
+    "This short, interactive example gives you a hands-on view of what a Culture Operating System provides. The data and process are realistic, but not from an actual case.",
   details:
     "The example includes (1) two Decision Principles, each with two Actions, and (2) two Behavioral Principles, each with two Actions.",
   footerName: "Gerald (Jerry) Wagner, PhD",
