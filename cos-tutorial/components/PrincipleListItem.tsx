@@ -9,6 +9,7 @@ interface PrincipleListItemProps {
   accountable: string;
   measurement: string;
   employeeFeedback: string[];
+  action: string;
   guideTargetId?: string;
 }
 
@@ -20,6 +21,7 @@ export default function PrincipleListItem({
   accountable,
   measurement,
   employeeFeedback,
+  action,
   guideTargetId,
 }: PrincipleListItemProps) {
   return (
@@ -48,6 +50,7 @@ export default function PrincipleListItem({
           accountable={accountable}
           measurement={measurement}
           employeeFeedback={employeeFeedback}
+          action={action}
           compact
         />
       </div>

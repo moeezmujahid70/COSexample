@@ -6,15 +6,17 @@ interface PrinciplePopupsProps {
   accountable: string;
   measurement: string;
   employeeFeedback: string[];
+  action: string;
   compact?: boolean;
 }
 
-type PopupKey = "accountable" | "measurement" | "feedback" | null;
+type PopupKey = "accountable" | "measurement" | "feedback" | "action" | null;
 
 function getPopupMeta(
   accountable: string,
   measurement: string,
   employeeFeedback: string[],
+  action: string,
 ) {
   const icons = {
     accountable: (
@@ -43,24 +45,45 @@ function getPopupMeta(
         />
       </svg>
     ),
+    action: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current" aria-hidden="true">
+        <path
+          d="M8 6.5h8M8 10.5h8M8 14.5h5M6.5 4.5h11A1.5 1.5 0 0 1 19 6v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18V6a1.5 1.5 0 0 1 1.5-1.5Z"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15.5 15.5l1.5 1.5 3-3"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   };
 
   return {
-  accountable: {
-    title: "Leadership",
-    items: [accountable],
-    icon: icons.accountable,
-  },
-  measurement: {
-    title: "Measurement",
-    items: [measurement],
-    icon: icons.measurement,
-  },
-  feedback: {
-    title: "Feedback",
-    items: employeeFeedback,
-    icon: icons.feedback,
-  },
+    accountable: {
+      title: "Leadership",
+      items: [accountable],
+      icon: icons.accountable,
+    },
+    measurement: {
+      title: "Measurement",
+      items: [measurement],
+      icon: icons.measurement,
+    },
+    feedback: {
+      title: "Feedback",
+      items: employeeFeedback,
+      icon: icons.feedback,
+    },
+    action: {
+      title: "Action",
+      items: [action],
+      icon: icons.action,
+    },
   };
 }
 
@@ -102,10 +125,11 @@ export default function PrinciplePopups({
   accountable,
   measurement,
   employeeFeedback,
+  action,
   compact = false,
 }: PrinciplePopupsProps) {
   const [activePopup, setActivePopup] = useState<PopupKey>(null);
-  const content = getPopupMeta(accountable, measurement, employeeFeedback);
+  const content = getPopupMeta(accountable, measurement, employeeFeedback, action);
   const current = activePopup ? content[activePopup] : null;
 
   useEffect(() => {
@@ -133,12 +157,18 @@ export default function PrinciplePopups({
                 Supporting Popups
               </p>
               <p className="mt-1 text-sm text-text-muted">
-                Open a popup to review accountability, measurement, or employee feedback.
+                Open a popup to review accountability, measurement, employee feedback, or the action.
               </p>
             </div>
           </div>
         )}
-        <div className={`${compact ? "" : "mt-4 "}grid gap-3 sm:grid-cols-3`}>
+        <div className={`${compact ? "" : "mt-4 "}grid gap-3 sm:grid-cols-2 xl:grid-cols-4`}>
+          <PopupButton
+            label="Action"
+            onClick={() => setActivePopup("action")}
+            icon={content.action.icon}
+            compact={compact}
+          />
           <PopupButton
             label="Leadership"
             onClick={() => setActivePopup("accountable")}

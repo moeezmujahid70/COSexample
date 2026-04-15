@@ -24,6 +24,7 @@ export default function BehaviorPage() {
               accountable={principle.accountable}
               measurement={principle.measurement}
               employeeFeedback={principle.employeeFeedback}
+              action={principle.action}
             />
           ))}
         </div>

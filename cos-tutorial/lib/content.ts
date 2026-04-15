@@ -10,6 +10,7 @@ export interface PrincipleDetail {
   accountable: string;
   measurement: string;
   employeeFeedback: string[];
+  action: string;
   nextHref?: string;
   nextLabel?: string;
   secondaryHref?: string;
@@ -96,21 +97,20 @@ export const welcomeContent: WelcomeScreenContent = {
 
 export const introLaunchContent: IntroLaunchContent = {
   message:
-    "To manage a workplace culture well, you need to understand how it actually operates.",
+    "To manage a workplace, teams need to first design how they choose for it to actually operate.",
   durationMs: 5000,
   nextHref: "/concept",
 };
 
 export const introConceptContent: IntroConceptContent = {
   titleLines: [
-    "Before an example, look at the simple concept of a Culture Operating System.",
-    "Steps In Building A Culture Operating System",
+    "Before an example, look at the steps in designing a Culture Operating System.",
   ],
   steps: {
     decisionPrinciples: {
       number: "1",
       title: "Define Decision Principles",
-      lines: ["(How We Make Decisions)"],
+      lines: ["(How we choose to make decisions)"],
     },
     decisionActions: {
       number: "2",
@@ -120,7 +120,7 @@ export const introConceptContent: IntroConceptContent = {
     behaviorPrinciples: {
       number: "3",
       title: "Define Behavior Principles",
-      lines: ["(How We Behave)"],
+      lines: ["(How people are expected to behave)"],
     },
     behaviorActions: {
       number: "4",
@@ -176,12 +176,13 @@ export const categories: PrincipleCategory[] = [
           "People are quicker to raise issues now instead of waiting-it's made things a lot smoother.",
           "We talk about problems while they're still small, not after they've blown up.",
         ],
+        action: "Biweekly 15-minute problem sweep meetings focused on emerging issues.",
         nextHref: "/behavior/2",
         nextLabel: "Next Behavioral Principle",
       },
       {
         id: "2",
-        title: "If you see someone stuck, volunteer to help.",
+        title: "If someone is stuck, volunteer to help.",
         body: `This is about creating a culture of shared ownership - not "that's their problem," but "we move forward together." It encourages awareness, empathy, and initiative, while respecting the other person's autonomy (offer help, don't impose it).`,
         accountable: "Samuel Bass, Database Administrator",
         measurement: sharedMeasurement,
@@ -189,6 +190,7 @@ export const categories: PrincipleCategory[] = [
           "If someone's stuck, people notice and check in-it's not just 'figure it out yourself' anymore.",
           "There's more of a 'we're in this together' feel instead of everyone staying in their own lane.",
         ],
+        action: 'Daily standup includes: "Who is stuck right now?"',
         nextHref: "/overview?from=behavior",
         nextLabel: "Back to Principles Tabs",
       },
@@ -213,6 +215,8 @@ export const categories: PrincipleCategory[] = [
           "I used to wonder why decisions were made. Now I can just look it up and get the full picture.",
           "Even when I don't agree, at least I understand the thinking. That's a big improvement.",
         ],
+        action:
+          "Create a template form to record data and make it accessible to all stakeholders.",
         nextHref: "/decision/2",
         nextLabel: "Next Decision Principle",
       },
@@ -227,6 +231,8 @@ export const categories: PrincipleCategory[] = [
           "They actually ask for input before things are locked in now, which makes it feel worth speaking up.",
           "Not everyone gets their way, but you can see your input shaped the decision.",
         ],
+        action:
+          "Design a process for decision makers to invite stakeholders for feedback. The process includes a summary of the problem and the proposed solution.",
         nextHref: "/goodbye",
         nextLabel: "End Session",
         secondaryHref: "/overview?from=behavior",
